@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>User List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+
+          <th>Id</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of user | async">
+            <td>{{user.Id}}</td>
+          <td>{{user.first_name}}</td>
+          <td>{{user.last_name}}</td>
+          <td>{{user.email}}</td>
+          <td><button (click)="deleteUser(user.Id)" class="btn btn-danger">Delete</button>
+              <!-- <button (click)="UserDetails(user.Id)" class="btn btn-info" style="margin-left: 10px">Details</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

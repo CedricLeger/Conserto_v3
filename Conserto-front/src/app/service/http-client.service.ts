@@ -3,13 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class User {
-  constructor(
-    public Id: number,
-    public last_name: string,
-    public first_name: string,
-    public email: string,
-    public password: string
-  ) {}
+
+    public Id: number;
+    public last_name: string;
+    public first_name: string;
+    public email: string;
+    public password: string;
+
+    constructor(){}
+
 }
 
 @Injectable({
@@ -20,7 +22,7 @@ export class User {
 export class HttpClientService {
 
 
-   private baseUrl = 'http://localhost:8081/';
+   private baseUrl = 'http://localhost:8081/api/v1/Conserto_project ';
 
 
   constructor(private httpClient: HttpClient) {}
@@ -48,8 +50,8 @@ export class HttpClientService {
   }
 
   getHeaders() {
-    const email = 'root';
-    const password = '1234512345';
+    const email = 'admin';
+    const password = 'admin';
 
     const basicString = 'Basic ' + window.btoa(email + ':' + password);
     return basicString;

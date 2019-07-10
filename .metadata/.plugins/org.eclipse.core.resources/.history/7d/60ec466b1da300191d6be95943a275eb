@@ -17,5 +17,5 @@ spring.jpa.hibernate.ddl-auto = update
 # port d'ecoute du serveur applicatif
 server.port=8081
 
-spring.security.user.name= admin
-spring.security.user.password= admin
+#spring.security.user.name= admin
+#spring.security.user.password= admin

@@ -6,10 +6,10 @@ import { AuthGaurdService } from './service/auth-gaurd.service';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 const routes: Routes = [
-
+  { path:'',component:CreateUserComponent},
   { path: 'login', component: LoginComponent },
-  { path: 'createuser', component: CreateUserComponent,canActivate:[AuthGaurdService]},
-  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
+  { path: 'create', component: CreateUserComponent,canActivate:[AuthGaurdService]},
+  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService]},
   { path: 'userlist', component:UserListComponent,canActivate:[AuthGaurdService]}
 ];
 

@@ -5,10 +5,20 @@
   <ul class="navbar-nav">
 
 
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/createuser" class="nav-link">Add New User</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/create" class="nav-link">Add User</a></li>
     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link">User List</a></li>
   </ul>
+  <!-- <li class="nav-item">
+    <a routerLink="/createuser" class="nav-link" routerLinkActive="active">Add User</a>
+</li>
+<li class="nav-item">
+    <a routerLink="/userlist" class="nav-link" routerLinkActive="active">User List</a>
+</li>
+<li class="nav-item">
+  <a routerLink="/logout" class="nav-link" routerLinkActive="active">Logout</a>
+</li>
+</ul> -->
     </nav>
   </header>

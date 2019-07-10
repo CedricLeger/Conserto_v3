@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientService, User } from './../../service/http-client.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -9,21 +10,49 @@ import { HttpClientService, User } from './../../service/http-client.service';
 export class CreateUserComponent implements OnInit {
 
   // voir ce qu'il faut mettre a la place de null pour un parametre de type nombre
-  user: User = new User(null, '', '', '', '');
+  user: User = new User();
+  submitted = false;
+
+
 
   constructor(
-    private httpClientService: HttpClientService
-  ) { }
+    private httpClientService: HttpClientService ,
+    private router: Router)
+
+   { }
 
   ngOnInit() {
   }
 
-  createUser(): void {
+  newUser(): void {
+    this.submitted = false;
+    this.user = new User ();
+  }
+
+  save() {
+
     this.httpClientService.createUser(this.user)
-        .subscribe( data => {
-          alert('User created successfully.');
-        });
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.user = new User();
+    // this.gotoList();
+  }
+  // gotoList() {
+  //   this.router.navigate(['/userlist']);
+  // }
 
-  };
 
-}
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
+
+
+  // createUser(): void {
+  //   this.httpClientService.createUser(this.user)
+  //       .subscribe( data => {
+  //         alert('User created successfully.');
+  //       });
+
+  }
+
+

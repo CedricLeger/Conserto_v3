@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientService, User } from './../../service/http-client.service';
+import { HttpClientService } from './../../service/http-client.service';
 import { Router } from '@angular/router';
+import { User } from 'src/user';
 
 @Component({
   selector: 'app-create-user',
@@ -34,11 +35,11 @@ export class CreateUserComponent implements OnInit {
     this.httpClientService.createUser(this.user)
       .subscribe(data => console.log(data), error => console.log(error));
     this.user = new User();
-    // this.gotoList();
+    this.gotoList();
   }
-  // gotoList() {
-  //   this.router.navigate(['/userlist']);
-  // }
+  gotoList() {
+    this.router.navigate(['/users']);
+  }
 
 
   onSubmit() {

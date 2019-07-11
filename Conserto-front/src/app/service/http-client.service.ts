@@ -1,18 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from 'src/user';
 
-export class User {
 
-    public Id: number;
-    public last_name: string;
-    public first_name: string;
-    public email: string;
-    public password: string;
 
-    constructor(){}
 
-}
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -22,39 +18,48 @@ export class User {
 export class HttpClientService {
 
 
-   private baseUrl = 'http://localhost:8081/api/v1/Conserto_project ';
+   private baseUrl = 'http://localhost:8080/api/v1';
 
 
   constructor(private httpClient: HttpClient) {}
 
   getUserList(): Observable<any> {
 
-    const headers = new HttpHeaders({'Access-Control-Allow-Origin': '*',
-    Authorization: 'authkey ' + btoa('admin:admin')});
+     const headers = new HttpHeaders({'Access-Control-Allow-Origin':'*'});
+    // Authorization: 'authkey ' + btoa('admin:admin')});
+     return this.httpClient.get(`${this.baseUrl}`);
 
-
-    return this.httpClient.get(this.baseUrl, {headers});
+    // return this.httpClient.get(this.baseUrl, {headers});
   }
 
   getUser(id: number): Observable<any> {
-      return this.httpClient.get(`${this.baseUrl}/${id}`);
-  }
+    return this.httpClient.get(`${this.baseUrl}/${id}`);
+}
 
-  public deleteUser(id: number): Observable<any> {
-    return this.httpClient.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
-  }
-
-  public createUser(user: Object): Observable<Object> {
+ createUser(user: Object): Observable<Object> {
     return this.httpClient.post(`${this.baseUrl}`, user);
+  }
+updateUser(id: number , value: any): Observable<Object>{
+  return this.httpClient.put(`${this.baseUrl}/${id}`, value);
+}
 
+deleteUser(id: number): Observable<any> {
+  return this.httpClient.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  ;
   }
 
-  getHeaders() {
-    const email = 'admin';
-    const password = 'admin';
 
-    const basicString = 'Basic ' + window.btoa(email + ':' + password);
-    return basicString;
-  }
+
+
+  // public deleteUser(id: number): Observable<any> {
+  //   return this.httpClient.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  // }
+
+  // public createUser(user: Object): Observable<Object> {
+  //   return this.httpClient.post(`${this.baseUrl}`, user);
+
+  // }
+
+
 }
 

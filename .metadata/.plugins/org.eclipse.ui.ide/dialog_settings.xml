@@ -39,6 +39,10 @@
 		<item value="org.sonatype.m2e.egit.feature:0.15.1.201806191431"/>
 		<item value="org.sonatype.m2e.mavenarchiver.feature:0.17.4.201905300046"/>
 	</list>
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/stagldnr/Bureau/Spring-java-projet/Angular8-SpringBoot-CRUD-Tutorial-master/springboot2-jpa-crud-example"/>
+		<item value="/home/stagldnr/Bureau/Spring-java-projet/springboot2-jpa-crud-example"/>
+	</list>
 	<section name="ResourceNavigator">
 		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
 	</section>

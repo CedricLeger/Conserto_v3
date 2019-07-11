@@ -1,14 +1,14 @@
 <header>
   <nav class ="navbar navbar-expand-md navbar-dark bg-dark">
-  <div><a href="https://www.javainuse.com" class="navbar-brand">JavaInUse</a></div>
+  <div><a href="https://www.javainuse.com" class="navbar-brand">ConsertoProject</a></div>
 
   <ul class="navbar-nav">
 
 
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/create" class="nav-link">Add User</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/createuser" class="nav-link">Add User</a></li>
     <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">LogOut</a></li>
-    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/userlist" class="nav-link">User List</a></li>
+    <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/users" class="nav-link">User List</a></li>
   </ul>
   <!-- <li class="nav-item">
     <a routerLink="/createuser" class="nav-link" routerLinkActive="active">Add User</a>

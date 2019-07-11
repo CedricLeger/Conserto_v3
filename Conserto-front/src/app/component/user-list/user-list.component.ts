@@ -1,8 +1,9 @@
 // import { EmployeeDetailsComponent } from '../employee-details/employee-details.component';
 import { Observable } from 'rxjs';
-import { HttpClientService, User } from '../../service/http-client.service';
+import { HttpClientService } from '../../service/http-client.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/user';
 
 @Component({
   selector: 'app-user-list',

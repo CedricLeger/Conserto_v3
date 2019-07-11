@@ -24,9 +24,9 @@ import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 
-@CrossOrigin(origins= "http://localhost:4200" ,maxAge=3600)
-@RequestMapping("api/v1/")
+@CrossOrigin(origins= "http://localhost:4200")
 @RestController
+@RequestMapping("/api/v1")
 public class UserController {
 	
 	//5 API REST a developper ici 
@@ -35,13 +35,13 @@ public class UserController {
 
     //Get all pour la liste entière
 
-    @GetMapping("/userlist")
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     //recherche par id 
-    @GetMapping("/user/{id}")
+    @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long Id)
         throws ResourceNotFoundException {
         User user = userRepository.findById(Id)
@@ -49,12 +49,12 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
     //création d'un user
-    @PostMapping("/create")
+    @PostMapping("/users")
     public User createEmployee(@Valid @RequestBody User user) {
         return userRepository.save(user);
     }
     //update d'un user
-    @PutMapping("/user/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long Id,
          @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
        User user = userRepository.findById(Id)
@@ -69,7 +69,7 @@ public class UserController {
         return ResponseEntity.ok(updatedUser);
     }
     //suppresion d'un user par l'id
-    @DeleteMapping("/user/{id}")
+    @DeleteMapping("/users/{id}")
     public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long Id)
          throws ResourceNotFoundException {
         User user = userRepository.findById(Id)

@@ -29,7 +29,7 @@ import { UserListComponent } from './component/user-list/user-list.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [HttpClientService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

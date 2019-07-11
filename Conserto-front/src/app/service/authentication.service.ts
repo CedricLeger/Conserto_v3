@@ -1,30 +1,32 @@
-import { Injectable } from '@angular/core';
+ import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthenticationService {
+ @Injectable({
+   providedIn: 'root'
+ })
+ export class AuthenticationService {
 
-  constructor() { }
+   constructor() { }
 
   authenticate(email, password) {
-    if (email === 'test' && password === 'test') {
-      sessionStorage.setItem('email', email)
-      return true;
+     if (email === 'test' && password === 'test') {
+       sessionStorage.setItem('email', email)
+      console.log('email :'+ email+'  password:'+password)
+
+       return true;
     } else {
-      return false;
-    }
+       return false;
+     }
+   }
+
+   isUserLoggedIn() {
+     const user = sessionStorage.getItem('email')
+     console.log(!(user == null))
+     return !(user == null)
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem('email')
-    console.log(!(user == null))
-    return !(user == null)
-  }
-
-  logOut() {
-    sessionStorage.removeItem('email')
-  }
-}
+   logOut() {
+     sessionStorage.removeItem('email')
+   }
+ }
 
 

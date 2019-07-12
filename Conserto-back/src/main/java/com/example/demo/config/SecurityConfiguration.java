@@ -34,7 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.httpBasic().disable();
 
 		//httpSecurity.addFilterBefore(new SimpleCORSFilter(), ChannelProcessingFilter.class);
 		httpSecurity.csrf().disable().cors().disable();
@@ -43,7 +42,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.permitAll()
 			.anyRequest()			
 			.permitAll()
-			.and().httpBasic().and().csrf().disable();
+			.and()
+            .formLogin().disable()
+            .httpBasic().and().csrf().disable();
 		
 	}
 

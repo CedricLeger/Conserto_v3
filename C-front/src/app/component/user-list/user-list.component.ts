@@ -29,6 +29,7 @@ export class UserListComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          console.log(this.userService);
           this.reloadData();
         },
         error => console.log(error));

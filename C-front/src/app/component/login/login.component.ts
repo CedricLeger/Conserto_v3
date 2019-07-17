@@ -7,9 +7,14 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [AuthenticationService]
 })
 export class LoginComponent implements OnInit {
+
+  // test model
+  model: any = {};
+
 
   email = '';
   password = '';
@@ -19,7 +24,7 @@ export class LoginComponent implements OnInit {
               private loginservice: AuthenticationService) { }
 
   ngOnInit() {
-
+    console.log('Welcome on the login page');
   }
 
   checkLogin() {
@@ -35,6 +40,13 @@ export class LoginComponent implements OnInit {
     )
     );
 
+  }
+  getLogin() {
+    return this.loginservice.getUser().login;
+  }
+
+  logout() {
+    return this.loginservice.logOut();
   }
 
 

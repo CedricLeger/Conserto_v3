@@ -9,6 +9,8 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './component/login/login.component';
+import { AuthGaurdService } from './service/auth-guard.service';
+import { AuthenticationService } from './service/authentication.service';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import { LoginComponent } from './component/login/login.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,7 @@ export class UserService {
 
 
   private baseUrl = 'http://localhost:8082/springboot-crud-rest/api/v1/users';
+
   // test pour l'authentification
   email = 'test';
   password = 'test';

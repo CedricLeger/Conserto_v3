@@ -23,23 +23,17 @@
 
       <div class="form-group">
           <label for="select">Role </label>
-               <select id="select"
-               required [(ngModel)]="user.role" name="role">
+          <select id="role" class="form-control"
+          [(ngModel)]="user.role" [ngModelOptions]= "{standalone: true}">
+          <option *ngFor="let role of role" [value]="role">{{ role }}</option>
+        </select>
+            </div>
 
-                 <option *ngFor = "let role of role"
-                   [value]="role">{{role}}
-                 </option>
-               </select>
-           </div>
-      <!-- <select id=role [(ngModel)]="user.role">
-        <option value ="">--Please choose a role--</option>
-        <option value ="user">User</option>
-        <option value ="admin">Admin</option>
-      </select> -->
 
 
     <button type="submit" class="btn btn-success">Submit</button>
   </form>
+  L'utilisateur s'appelle {{ user.firstName }} et c'est un {{user.role}}.
 </div>
 
 <div [hidden]="!submitted">

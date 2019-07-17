@@ -11,9 +11,10 @@ import { Router } from '@angular/router';
 })
 
 
+
 export class CreateUserComponent implements OnInit {
 
- role: string[];
+  public role = ['Administrateur', 'Utilisateur'];
 
 
 user: User = new User();
@@ -23,20 +24,23 @@ constructor(private userService: UserService,
             private router: Router) { }
 
 ngOnInit() {
-  this.role = ['User','Admin'
-              ];
+console.log(this.user);
   }
 
 newUser(): void {
     this.submitted = false;
     this.user = new User();
+
   }
 
 save() {
+
     this.userService.createUser(this.user)
       .subscribe(data => console.log(data), error => console.log(error));
-    this.user = new User();
-    console.log(this.user);
+    // this.user = new User();
+    console.log(this.user.role);
+    console.log('test : '+this.user);
+
     this.gotoList();
 
   }
@@ -47,6 +51,7 @@ onSubmit() {
 
   }
 
+  // retour à la page User apres la création d'un User
 gotoList() {
     this.router.navigate(['/users']);
 

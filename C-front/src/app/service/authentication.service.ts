@@ -22,7 +22,6 @@ export class AuthenticationService {
      map(
        userData => {
         sessionStorage.setItem('email',email);
-        console.log("coucou");
         return userData;
        }
      )
@@ -35,11 +34,23 @@ export class AuthenticationService {
     console.log(!(user === null))
     console.log(user);
     return user;
-    // return !(user === null)
+
   }
 
   logOut() {
+    console.log('Tentative de déconnexion');
     sessionStorage.removeItem('email')
+  }
+
+  // Permet de récupérer l'utilisateur en session par son email
+  getUser() {
+    return JSON.parse(sessionStorage.getItem('email'));
+  }
+
+
+// Permet de changer l'email de l'utilisateur en session
+  setUser(user: any) {
+    sessionStorage.setItem('user', JSON.stringify(user));
   }
 }
 

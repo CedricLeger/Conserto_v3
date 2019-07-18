@@ -13,7 +13,7 @@ const routes: Routes = [
 { path : 'logout', component : LoginComponent},
 { path: 'users', component : UserListComponent ,canActivate:[AuthGaurdService]},
 { path: 'add', component : CreateUserComponent,canActivate:[AuthGaurdService]},
-{ path: 'detail/id', component: UserDetailsComponent},
+{ path: 'users/detail/id', component: UserDetailsComponent},
 
 
 

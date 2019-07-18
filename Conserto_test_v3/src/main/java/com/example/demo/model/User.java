@@ -2,9 +2,14 @@ package com.example.demo.model;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.Collection;
 
 @Entity
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class)
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
 
@@ -17,7 +22,7 @@ public class User {
     private String email;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
         name = "users_roles",
         joinColumns = @JoinColumn(

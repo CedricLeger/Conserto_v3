@@ -3,7 +3,7 @@ import { User } from 'src/user';
 import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
- 
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -17,20 +17,21 @@ export class CreateUserComponent implements OnInit {
   // Je vais te faire un exemple ici dont tu pourras t'inspirer par la suite
   public createUserFormGroup: FormGroup;
 
-  private user: User = new User();
-  private submitted = false;
+  //private noramlement je fasi un test
+  public user: User = new User();
+  public submitted = false;
 
   constructor(private userService: UserService,
-    private router: Router,
-    private _formBuilder: FormBuilder) { }
+              private router: Router,
+              private _formBuilder: FormBuilder) { }
 
-  // Ici on va utiliser FormBuilder qui est la manière plus propres de créer un FormGroup et ses controls. 
+  // Ici on va utiliser FormBuilder qui est la manière plus propres de créer un FormGroup et ses controls.
   // On pourrait le faire manuellement mais ça deviendrait très vite une tâche un peu trop répètitive.
   //
   // Le FormGroup doit être initialiser impérativement lors de l'initialisation du component
   ngOnInit() {
     console.log(this.user);
-    
+
     // Le Validators.required permet de faire automatiquement un bloquage quand le champ n'est pas remplis
     // Le Validators.email permet de vérifier que le champ contient bien une adresse mail
     // D'autres validators pourrait être créer pour forcer une strategie de mot de passe
@@ -54,7 +55,7 @@ export class CreateUserComponent implements OnInit {
     this.userService.createUser(this.user)
       .subscribe(data => console.log(data), error => console.log(error));
     // this.user = new User();
-    console.log(this.user.role);
+   
     console.log('test : ' + this.user);
 
     this.gotoList();
@@ -64,13 +65,14 @@ export class CreateUserComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // Cette boucle permet de mapper automatiquement l'objet User avec les valeurs qui seront dans les controls. 
+    // Cette boucle permet de mapper automatiquement l'objet User avec les valeurs qui seront dans les controls.
     // On pourrait le faire manuellement i.e. = this.user.email = this.createUserFormGroup.get('email').value
-    // Mais moi je suis un flémard du coup j'ai fais une boucle qui fait le job à ma place :D 
+    // Mais moi je suis un flémard du coup j'ai fais une boucle qui fait le job à ma place :D
     Object.keys(this.createUserFormGroup.controls).forEach(key => {
-      this.user[key] = this.createUserFormGroup.get(key).value();
-    })
+      this.user[key] = this.createUserFormGroup.get(key).value;
+    });
     this.save();
+    this.gotoList();
   }
 
   // retour à la page User apres la création d'un User
@@ -79,4 +81,3 @@ export class CreateUserComponent implements OnInit {
 
   }
 }
- 

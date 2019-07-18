@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,7 +10,10 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,9 +25,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.configuration.SetupDataLoader;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.model.Privilege;
+import com.example.demo.model.Role;
 import com.example.demo.model.User;
+import com.example.demo.repository.PrivilegeRepository;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.configuration.*;
 //import com.example.demo.service.UserService;
 
 @RestController @CrossOrigin("*")
@@ -29,8 +41,15 @@ import com.example.demo.repository.UserRepository;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
-    @Autowired
+    private RoleRepository roleRepository;
+
+    
 //    private UserService userService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+
+
 
     @GetMapping("/users")
     public List<User> getAllUsers(){ 
@@ -47,18 +66,30 @@ public class UserController {
     
     @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user,BindingResult result)  {
-//    	 User existing = userService.findByEmail(user.getEmail());
-//    	if (existing != null) {
-//            result.rejectValue("email", null, "There is already an account registered with that email");
-//        }
-        return userRepository.save(user);
+    	
+    	
+    		return createUserIfNotFound(user.getEmail(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getRoles());
     }
 
     
     
-    
-    
-    @PutMapping("/users/{id}")
+    private final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final Collection<Role> roles) {
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+//        	Role userRole = roleRepository.findByName("ROLE_USER");
+            user = new User();
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setPassword(passwordEncoder.encode(password));
+            user.setEmail(email);
+//           user.setRoles(Arrays.asList(userRole));
+
+        }
+        user = userRepository.save(user);
+        return user;
+    }
+
+	@PutMapping("/users/{id}")
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
          @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
         User user = userRepository.findById(userId)

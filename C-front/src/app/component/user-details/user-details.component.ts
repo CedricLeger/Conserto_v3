@@ -29,6 +29,6 @@ export class UserDetailsComponent implements OnInit {
   }
 
   list(){
-    this.router.navigate(['user']);
+    this.router.navigate(['users']);
   }
 }

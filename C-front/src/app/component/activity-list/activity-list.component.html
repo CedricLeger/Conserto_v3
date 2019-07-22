@@ -1,0 +1,35 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>User List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>Id</th>
+          <th>Name</th>
+          <th>Localisation</th>
+          <th>Description</th>
+          <th>Covered by Conserto</th>
+          <th>Date</th>
+          <th>Participant</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let activity of activity| async">
+            <td>{{activity.id}}</td>
+          <td>{{activity.name}}</td>
+          <td>{{activity.location}}</td>
+          <td>{{activity.cover}}</td>
+          <td>{{activity.date}}</td>
+
+
+          <td><button (click)="deleteActivity(activity.id)" class="btn btn-danger">Delete</button> -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

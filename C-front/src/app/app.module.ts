@@ -12,6 +12,13 @@ import { LoginComponent } from './component/login/login.component';
 import { AuthGaurdService } from './service/auth-guard.service';
 import { AuthenticationService } from './service/authentication.service';
 
+import { CreateActivitiesComponent } from './component/create-activities/create-activities.component';
+import { CreateEventsComponent } from './component/create-events/create-events.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ActivityListComponent } from './component/activity-list/activity-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,12 @@ import { AuthenticationService } from './service/authentication.service';
     CreateUserComponent,
     UserListComponent,
     UserDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    CreateActivitiesComponent,
+    CreateEventsComponent,
+    ActivityListComponent,
+
+
 
   ],
   imports: [
@@ -27,7 +39,10 @@ import { AuthenticationService } from './service/authentication.service';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

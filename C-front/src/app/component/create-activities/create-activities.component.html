@@ -1,0 +1,50 @@
+<h3>Create Activities</h3>
+<div [hidden]="submitted" style="width: 400px;">
+
+  <form method="post" [formGroup]="createActivitiesFormGroup" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+
+      <label for="name">Name</label>
+
+      <input formControlName="name" type="text" class="form-control" id="Name" required name="firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Localisation</label>
+
+      <input formControlName="localisation" type="text" class="form-control" id="localisation" required name="localisation">
+    </div>
+    <div class="form-group">
+      <label for="name">Description</label>
+
+      <input formControlName="description" type="text" class="form-control" id="description" required name="description">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Covered by Conserto</label>
+
+      <input formControlName="cover" type="checkbox" class="form-control" id="cover" name="cover">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Date</label>
+
+      <input formControlName="date" type="date" class="form-control" id="date" required name="date">
+    </div>
+<!--
+    <div class="form-group">
+      <label for="name">Horraire</label>
+
+      <input formControlName="time" type="time" class="form-control" id="time" required name="time">
+    </div> -->
+
+    <p>Liste participant : </p>
+
+    <p>Liste hésitant : </p>
+
+    <p>Liste absents : </p>
+
+    <button type="submit" [disabled]="!createActivitiesFormGroup.valid">Submit</button>
+
+
+  </form>

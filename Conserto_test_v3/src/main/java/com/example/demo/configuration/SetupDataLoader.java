@@ -1,13 +1,18 @@
 package com.example.demo.configuration;
 
+import java.sql.Time;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
+import com.example.demo.repository.ActivityRepository;
 import com.example.demo.repository.PrivilegeRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.model.Activity;
 import com.example.demo.model.Privilege;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
@@ -27,6 +32,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     private UserRepository userRepository;
 
     @Autowired
+    private ActivityRepository activityRepository;
+    
+    @Autowired
     private RoleRepository roleRepository;
 
     @Autowired
@@ -35,6 +43,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    Date today = new Date() ;
+    DateFormat formatDate = DateFormat.getDateInstance( DateFormat.MEDIUM ) ;
+    
     // API
 
 
@@ -55,12 +66,13 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         // == create initial roles
         final List<Privilege> adminPrivileges = new ArrayList<Privilege>(Arrays.asList(readPrivilege, writePrivilege, passwordPrivilege));
         final List<Privilege> userPrivileges = new ArrayList<Privilege>(Arrays.asList(readPrivilege, passwordPrivilege));
-        final Role adminRole = createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
-        createRoleIfNotFound("ROLE_USER", userPrivileges);
+         Role adminRole = createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
+         createRoleIfNotFound("ROLE_USER", userPrivileges);
 
         // == create initial user
-        createUserIfNotFound("test@test.com", "Test", "Test", "test", new ArrayList<Role>(Arrays.asList(adminRole)));
-
+//        createUserIfNotFound("admin@admin.com", "admin", "admin", "admin", new ArrayList<Role>(Arrays.asList(adminRole)));
+      
+//        createActivityIfNotFound("test","test","ici",true,true,today,"12:00");
         alreadySetup = true;
     }
 
@@ -100,5 +112,25 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         user = userRepository.save(user);
         return user;
     }
+    
+    @Transactional
+    private final Activity createActivityIfNotFound(final String name,final String content ,final String localisation,final boolean condition, final boolean cover,final Date date , final String time) {
+    	
+    	Activity activity = activityRepository.findByName(name);
+    	if(activity == null) {
+    		activity = new Activity();
+    		activity.setName(name);
+    		activity.setContent(content);
+    		activity.setLocalisation(localisation);
+    		activity.setDate(date);
+    		activity.setTime(time);
+    		activity.setCondition(condition);
+    		activity.setCover(cover);
+    		}
+//    	activity.setUsers(users);
+    	activity = activityRepository.save(activity);
+    	return activity;
+    }
+    
 
 }

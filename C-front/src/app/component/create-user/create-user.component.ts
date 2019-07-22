@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/user';
+import { User } from 'src/app/module/user';
 import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -55,7 +55,7 @@ export class CreateUserComponent implements OnInit {
     this.userService.createUser(this.user)
       .subscribe(data => console.log(data), error => console.log(error));
     // this.user = new User();
-   
+
     console.log('test : ' + this.user);
 
     this.gotoList();

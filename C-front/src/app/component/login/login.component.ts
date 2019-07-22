@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../service/authentication.service';
-import { User } from 'src/user';
+import { User } from 'src/app/module/user';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
   }
 
   logout() {
+    console.log('déconnection : '+ this.email)
     return this.loginservice.logOut();
   }
 

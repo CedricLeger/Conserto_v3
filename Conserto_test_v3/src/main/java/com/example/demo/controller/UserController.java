@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,13 +28,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.configuration.SetupDataLoader;
 import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.model.Activity;
 import com.example.demo.model.Privilege;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
+import com.example.demo.repository.ActivityRepository;
 import com.example.demo.repository.PrivilegeRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
-import com.example.demo.configuration.*;
+import com.example.demo.configuration.SetupDataLoader;
 //import com.example.demo.service.UserService;
 
 @RestController @CrossOrigin("*")
@@ -42,8 +45,9 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-
-    
+    private ActivityRepository activityRepository;
+  
+   
 //    private UserService userService;
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -51,6 +55,7 @@ public class UserController {
 
 
 
+    
     @GetMapping("/users")
     public List<User> getAllUsers(){ 
         return userRepository.findAll();
@@ -73,7 +78,7 @@ public class UserController {
 
     
     
-    private final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final Collection<Role> roles) {
+    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final Collection<Role> roles) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
 //        	Role userRole = roleRepository.findByName("ROLE_USER");
@@ -121,6 +126,5 @@ public class UserController {
 	public User validateLogin() {
 		return new User();
 	}
-    
-    
+
 }

@@ -39,7 +39,7 @@ export class CreateActivitiesComponent implements OnInit {
     this.createActivitiesFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
       localisation: ['', Validators.required],
-      description: ['', Validators.required],
+      content: ['', Validators.required],
       cover: [''],
       date: ['', Validators.required],
       time: ['',],
@@ -49,6 +49,7 @@ export class CreateActivitiesComponent implements OnInit {
   newActivity(): void {
     this.submitted = false;
     this.activity = new Activity();
+
 
   }
 

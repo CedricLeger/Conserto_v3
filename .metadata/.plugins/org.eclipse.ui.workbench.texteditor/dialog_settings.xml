@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="delete"/>
 			<item value="add"/>
 			<item value="userId"/>
 			<item value="user.setRoles(roles);"/>

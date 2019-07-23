@@ -2,7 +2,6 @@ package com.example.demo.configuration;
 
 import java.sql.Time;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -45,9 +44,8 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     private PasswordEncoder passwordEncoder;
 
     Date today = new Date() ;
-//    DateFormat formatDate = DateFormat.getDateInstance( DateFormat.SHORT ) ;
-    SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-    String DateToStr = format.format(today);
+    DateFormat formatDate = DateFormat.getDateInstance( DateFormat.SHORT ) ;
+    
     // API
 
 

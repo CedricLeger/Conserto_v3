@@ -42,7 +42,6 @@ public class ActivityController {
    
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-    
     @Autowired
     private ActivityRepository activityRepository;
     
@@ -65,7 +64,7 @@ public class ActivityController {
     }
     
     
-    @PostMapping("")
+    @PostMapping("/createactivities")
 //    @RequestMapping(value = "/createactivities", method = RequestMethod.POST)
     public Activity createActivity(@Valid @RequestBody Activity activity,BindingResult result)  {
     	

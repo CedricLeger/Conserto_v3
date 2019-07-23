@@ -38,4 +38,5 @@ export class ActivityListComponent implements OnInit {
   AcitivtyDetails(id: number){
     this.router.navigate(['users/detail', id]);
   }
+  
 }

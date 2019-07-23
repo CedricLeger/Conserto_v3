@@ -65,7 +65,7 @@ public class ActivityController {
     }
     
     
-    @PostMapping("")
+    @PostMapping("/createactivities")
 //    @RequestMapping(value = "/createactivities", method = RequestMethod.POST)
     public Activity createActivity(@Valid @RequestBody Activity activity,BindingResult result)  {
     	

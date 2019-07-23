@@ -74,7 +74,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         // == create initial user
 //        createUserIfNotFound("admin@admin.com", "admin", "admin", "admin", new ArrayList<Role>(Arrays.asList(adminRole)));
       
-        createActivityIfNotFound("test","test","ici",true,true,today,"12:00");
+        createActivityIfNotFound("test","test","ici",true,true,DateToStr,"12:00");
         alreadySetup = true;
     }
 

@@ -4,8 +4,10 @@ export class Activity{
 
   id: number;
   name: string;
-  location: string;
-  cover: string;
+  content: string;
+  localisation: string;
+  condition: boolean;
+  cover: boolean;
   date: Date;
   time: Time;
 }

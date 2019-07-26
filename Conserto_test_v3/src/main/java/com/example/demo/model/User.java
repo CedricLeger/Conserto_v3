@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.JsonSerializer;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class User  {
         inverseJoinColumns = @JoinColumn(
             name = "role_id", referencedColumnName = "id"))
     
-    private List < Role > roles;
+    private List < Role > roles ;;
 
     public User() {}
 

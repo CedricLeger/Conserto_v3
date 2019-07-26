@@ -63,6 +63,8 @@ public class UserController {
     
     @GetMapping("/users")
     public List<User> getAllUsers(){ 
+    	//test
+//    	System.out.println("TEST : "+roleRepository.findByName("ROLE_USER"));
         return userRepository.findAll();
     }
 
@@ -84,7 +86,7 @@ public class UserController {
 
     
    
-    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final List<Role> roles) {
+    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password,  final List<Role> roles) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
         	
@@ -96,7 +98,14 @@ public class UserController {
 
 
         }
-//        user.setRoles((Arrays.asList(roleRepository.findByName("ROLE_USER"))));
+        List<Role> r = new ArrayList<>();
+        if (roles != null) {
+        	r.addAll(roles);
+        }
+        Role test = roleRepository.findByName("ROLE_USER");
+        r.add(test) ;
+        
+        user.setRoles(r);
         user = userRepository.save(user);
         return user;
     }
@@ -135,6 +144,8 @@ public class UserController {
 	public User validateLogin() {
 		return new User();
 	}
+	 // == create initial privileges
+    
 }
 	
 	

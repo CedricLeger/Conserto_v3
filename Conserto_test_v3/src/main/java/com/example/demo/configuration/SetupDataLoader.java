@@ -50,10 +50,10 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     private PasswordEncoder passwordEncoder;
 
     Date today = new Date() ;
-//    DateFormat formatDate = DateFormat.getDateInstance( DateFormat.SHORT ) ;
+
     SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
     String DateToStr = format.format(today);
-    // API
+    
 
 
     @Override
@@ -78,7 +78,8 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
 
         // == create initial user
        createUserIfNotFound("tyty", "tyty", "tyty", "tyty", new ArrayList<Role>(Arrays.asList(userRole)));
-      
+       createUserIfNotFound("jojo", "jojo", "user", "jojo", new ArrayList<Role>(Arrays.asList(adminRole)));
+       
         createActivityIfNotFound("test","test","ici",true,true,today,"12:00");
         createEventIfNotFound("name","content",today,"localisation");
         alreadySetup = true;

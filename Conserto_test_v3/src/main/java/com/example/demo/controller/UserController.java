@@ -29,13 +29,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.configuration.SetupDataLoader;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.model.Activity;
+import com.example.demo.model.Event;
 import com.example.demo.model.Privilege;
 import com.example.demo.model.Role;
 import com.example.demo.model.User;
 import com.example.demo.repository.ActivityRepository;
+import com.example.demo.repository.EventRepository;
 import com.example.demo.repository.PrivilegeRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.demo.configuration.SetupDataLoader;
 //import com.example.demo.service.UserService;
 
@@ -45,7 +48,9 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
     private RoleRepository roleRepository;
-    private ActivityRepository activityRepository;
+//    private ActivityRepository activityRepository;
+    private PrivilegeRepository privilegeRepository;
+//    private EventRepository eventRepository;
   
    
 //    private UserService userService;
@@ -66,6 +71,7 @@ public class UserController {
         throws ResourceNotFoundException {
         User user = userRepository.findById(userId)
           .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
+        System.out.println(user);
         return ResponseEntity.ok().body(user);
     }
     
@@ -77,19 +83,20 @@ public class UserController {
     }
 
     
-    
-    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final Collection<Role> roles) {
+   
+    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password, final List<Role> roles) {
         User user = userRepository.findByEmail(email);
         if (user == null) {
-//        	Role userRole = roleRepository.findByName("ROLE_USER");
+        	
             user = new User();
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setPassword(passwordEncoder.encode(password));
             user.setEmail(email);
-//           user.setRoles(Arrays.asList(userRole));
+
 
         }
+//        user.setRoles((Arrays.asList(roleRepository.findByName("ROLE_USER"))));
         user = userRepository.save(user);
         return user;
     }
@@ -119,12 +126,15 @@ public class UserController {
         response.put("deleted", Boolean.TRUE);
         return response;
     }
+
     
     //test
 	@GetMapping(produces = "application/json")
 	@RequestMapping({ "/" })
+	
 	public User validateLogin() {
 		return new User();
 	}
-
 }
+	
+	

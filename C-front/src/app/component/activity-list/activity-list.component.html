@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h2>User List</h2>
+    <h2>Activity List</h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">
@@ -14,7 +14,7 @@
           <th>Covered by Conserto</th>
           <th>Date</th>
           <th>Time</th>
-          <th>Participant</th>
+          <th>Actions</th>
 
         </tr>
       </thead>
@@ -39,3 +39,31 @@
     </table>
   </div>
 </div>
+<div class="panel-heading">
+    <h2>Event List</h2>
+  </div>
+  <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+              <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Localisation</th>
+             <th>Date</th>
+            <th>Time</th>
+            <th>Actions</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of event| async">
+            <td>{{event.id}}</td>
+            <td>{{event.name}}</td>
+            <td>{{event.content}}</td>
+            <td>{{event.localisation}}</td>
+            <td>{{event.date| date: 'dd/MM/yyyy'}}</td>
+            <td>{{event.date |date:'HH:mm a z':'+0000'}}</td>
+
+            <td><button (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
+            </td>

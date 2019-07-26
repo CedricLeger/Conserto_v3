@@ -19,7 +19,7 @@ export class EventService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createEvent(activity: Object): Observable<Object> {
+  createEvent(event: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, event);
   }
 

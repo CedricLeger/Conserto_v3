@@ -16,9 +16,12 @@ import { CreateActivitiesComponent } from './component/create-activities/create-
 import { CreateEventsComponent } from './component/create-events/create-events.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { ActivityListComponent } from './component/activity-list/activity-list.component';
+import {MatInputModule,MatOptionModule, MatSelectModule, MatIconModule} from '@angular/material'
+import {MatTableDataSource} from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { ActivityListComponent } from './component/activity-list/activity-list.c
 
 
 
+
+
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,8 @@ import { ActivityListComponent } from './component/activity-list/activity-list.c
     HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
+    MatButtonModule, MatCheckboxModule,
+    MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatFormFieldModule
 
   ],
   providers: [AuthenticationService],

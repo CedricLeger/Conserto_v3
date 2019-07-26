@@ -3,6 +3,8 @@ import { User } from 'src/app/module/user';
 import { UserService } from 'src/app/service/user.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Role } from 'src/app/module/role';
+
 
 @Component({
   selector: 'app-create-user',
@@ -10,15 +12,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  public role = ['Administrateur', 'Utilisateur'];
+  // public role =["ROLE_USER","ROLE_ADMIN"];
 
   // Pour la gestion d'un formulaire, il est préférable d'utiliser ReactiveForms d'Angular
   // Voici un peu de doc => https://angular.io/guide/reactive-forms
   // Je vais te faire un exemple ici dont tu pourras t'inspirer par la suite
   public createUserFormGroup: FormGroup;
 
-  //private noramlement je fasi un test
+  // private noramlement je fasi un test
   public user: User = new User();
+
+
   public submitted = false;
 
   constructor(private userService: UserService,
@@ -40,8 +44,8 @@ export class CreateUserComponent implements OnInit {
       password: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      role: ['', Validators.required]
-    })
+      //  roles: ['']
+    });
   }
 
   newUser(): void {
@@ -52,12 +56,14 @@ export class CreateUserComponent implements OnInit {
 
   save() {
 
+    console.log('test1 : ' + this.user);
     this.userService.createUser(this.user)
+    // rajouter un role au user avant l'enregistrement
       .subscribe(data => console.log(data), error => console.log(error));
     // this.user = new User();
 
-    console.log('test : ' + this.user);
-
+    console.log('test 2: ' + this.user);
+    // console.log('role :' + this.user.roles);
     this.gotoList();
 
   }

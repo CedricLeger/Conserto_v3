@@ -76,7 +76,7 @@ export class CreateActivitiesComponent implements OnInit {
 
   // retour à la page User apres la création d'un User
   gotoList() {
-    this.router.navigate(['/users']);
+    this.router.navigate(['/activities']);
 
   }
 }

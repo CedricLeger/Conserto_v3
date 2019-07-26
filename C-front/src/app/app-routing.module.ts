@@ -14,13 +14,13 @@ const routes: Routes = [
 { path: '', redirectTo: 'users', pathMatch: 'full'},
 { path : 'login', component : LoginComponent},
 { path : 'logout', component : LoginComponent},
-{ path: 'users', component : UserListComponent ,canActivate:[AuthGaurdService]},
-{ path: 'add', component : CreateUserComponent,canActivate:[AuthGaurdService]},
+{ path: 'users', component : UserListComponent , canActivate: [AuthGaurdService]},
+{ path: 'add', component : CreateUserComponent, canActivate: [AuthGaurdService]},
 { path: 'users/detail/id', component: UserDetailsComponent},
 
-{ path: 'createactivities', component: CreateActivitiesComponent, canActivate:[AuthGaurdService]},
-{ path: 'createevent', component: CreateEventsComponent, canActivate:[AuthGaurdService]},
-{ path: 'activities', component: ActivityListComponent, canActivate:[AuthGaurdService]}
+{ path: 'createactivities', component: CreateActivitiesComponent, canActivate: [AuthGaurdService]},
+{ path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGaurdService]},
+{ path: 'activities', component: ActivityListComponent, canActivate: [AuthGaurdService]}
 
 
 

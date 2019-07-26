@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="json"/>
 		<list key="findhistory">
+			<item value="json"/>
+			<item value="nested"/>
 			<item value="delete"/>
 			<item value="add"/>
 			<item value="userId"/>

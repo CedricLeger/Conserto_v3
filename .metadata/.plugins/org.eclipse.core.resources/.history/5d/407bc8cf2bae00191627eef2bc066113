@@ -1,0 +1,126 @@
+package com.example.demo.configuration;
+
+import java.util.Arrays;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import com.example.demo.service.UserService;
+
+@EnableWebSecurity
+@Configuration
+
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+	@Autowired
+    private UserService userService;
+	private UserDetailsService myUserDetailsService;
+	@Autowired
+	DataSource dataSource;
+	
+	
+	
+	@Autowired
+	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+		 auth
+         .userDetailsService(myUserDetailsService)
+         .passwordEncoder(passwordEncoder());
+	}	
+	
+//	@Override
+//	protected void configure(HttpSecurity httpSecurity) throws Exception {
+//		httpSecurity
+//		.cors().and().csrf().disable();
+//	}
+
+	@Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+	
+	
+	@Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http   
+         .cors().configurationSource(corsConfigurationSource()).and()
+         .csrf().disable()
+         .headers()
+          .frameOptions().sameOrigin()
+          .and()
+            .authorizeRequests()
+             .antMatchers("/resources/**", "/webjars/**","/assets/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+                .and()
+            .formLogin()
+                .loginPage("/login")
+                .defaultSuccessUrl("/users")
+                .failureUrl("/login?error")
+                .permitAll()
+                .and()
+            .logout()
+             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+             .logoutSuccessUrl("/login?logout")
+             .deleteCookies("my-remember-me-cookie")
+                .permitAll()
+                .and()
+             .rememberMe()
+              //.key("my-secure-key")
+              .rememberMeCookieName("my-remember-me-cookie")
+              .tokenRepository(persistentTokenRepository())
+              .tokenValiditySeconds(24 * 60 * 60)
+              .and()
+            .exceptionHandling()
+              ;
+    }
+	 
+    PersistentTokenRepository persistentTokenRepository(){
+     JdbcTokenRepositoryImpl tokenRepositoryImpl = new JdbcTokenRepositoryImpl();
+     tokenRepositoryImpl.setDataSource(dataSource);
+     return tokenRepositoryImpl;
+    }
+
+	
+	//beans
+	@Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(authenticationProvider());
+    }
+}

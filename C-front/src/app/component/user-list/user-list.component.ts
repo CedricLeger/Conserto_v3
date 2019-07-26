@@ -3,6 +3,8 @@ import { User } from 'src/app/module/user';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
+import { MatTableDataSource } from '@angular/material';
+
 
 @Component({
   selector: 'app-user-list',
@@ -16,11 +18,17 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService,
               private router: Router) {}
 
+
+displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email',''];
+
+
   ngOnInit() {
     this.reloadData();
+
   }
 
   reloadData() {
+
     this.users = this.userService.getUsersList();
   }
 
@@ -38,4 +46,7 @@ export class UserListComponent implements OnInit {
   userDetails(id: number){
     this.router.navigate(['users/detail', id]);
   }
+  // applyFilter(filterValue: string) {
+  //   this.users.filter = filterValue.trim().toLowerCase();
+  // }
 }

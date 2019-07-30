@@ -1,7 +1,19 @@
 
-
+      <table class="table table-striped">
+ <thead>
+  <tr>
+      <th>Id</th>
+    <th>Name</th>
+    <th>Votes</th>
+    <th>Action</th>
+  </tr>
+</thead>
 <tbody>
-  <tr *ngFor="let categorie of categories| async">
+  <tr *ngFor="let categorie of categories| async ; let i = index ">
+    <td>{{i}}</td>
     <td>{{categorie.name}}</td>
+    <td>{{categorie.nbOfVote}}</td>
+    <td><button (click)=voteButtonClick()>VoteFor</button></td>
   </tr>
 </tbody>
+</table>

@@ -42,7 +42,7 @@ export class CreateActivitiesComponent implements OnInit {
       content: ['', Validators.required],
       cover: [''],
       date: ['', Validators.required],
-      time: ['',],
+      time: ['', ],
      })
   }
 

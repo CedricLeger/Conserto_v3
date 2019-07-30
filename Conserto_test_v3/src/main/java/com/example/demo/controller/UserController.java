@@ -45,10 +45,15 @@ import com.example.demo.configuration.SetupDataLoader;
 @RestController @CrossOrigin("*")
 @RequestMapping("/api/v1")
 public class UserController {
+	
+	
+	
     @Autowired
     private UserRepository userRepository;
+    @Autowired
     private RoleRepository roleRepository;
 //    private ActivityRepository activityRepository;
+    @Autowired
     private PrivilegeRepository privilegeRepository;
 //    private EventRepository eventRepository;
   
@@ -91,6 +96,7 @@ public class UserController {
         if (user == null) {
         	
             user = new User();
+            user.setId(user.getId());
             user.setFirstName(firstName);
             user.setLastName(lastName);
             user.setPassword(passwordEncoder.encode(password));

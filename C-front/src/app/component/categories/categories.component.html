@@ -1,0 +1,25 @@
+    <h2>User List</h2>
+
+    <div class="panel-body">
+
+
+        <table class="table table-striped">
+       <thead>
+          <tr>
+              <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categorie of categorie | async">
+              <td>{{categorie.id}}</td>
+            <td>{{categorie.name}}</td>
+
+            <td><button (click)="deleteCategorie(categorie.id)" class="btn btn-danger">Delete</button>
+             </td>
+
+        </tbody>
+        </table>
+    </div>
+
+

@@ -8,6 +8,8 @@ import { AuthGaurdService } from './service/auth-guard.service';
 import { CreateActivitiesComponent } from './component/create-activities/create-activities.component';
 import { CreateEventsComponent } from './component/create-events/create-events.component';
 import { ActivityListComponent } from './component/activity-list/activity-list.component';
+import { CreateCategorieComponent } from './component/create-categorie/create-categorie.component';
+import { CategoriesComponent } from './component/categories/categories.component';
 
 const routes: Routes = [
 
@@ -17,6 +19,8 @@ const routes: Routes = [
 { path: 'users', component : UserListComponent , canActivate: [AuthGaurdService]},
 { path: 'add', component : CreateUserComponent, canActivate: [AuthGaurdService]},
 { path: 'users/detail/id', component: UserDetailsComponent},
+{ path: 'categorie', component : CreateCategorieComponent},
+{ path: 'allcategorie', component : CategoriesComponent},
 
 { path: 'createactivities', component: CreateActivitiesComponent, canActivate: [AuthGaurdService]},
 { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGaurdService]},

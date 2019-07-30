@@ -3,6 +3,9 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonFormat.Feature;
@@ -26,6 +29,7 @@ public class User  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Long id;
 
     private String firstName;
@@ -33,15 +37,17 @@ public class User  {
     private String email;
     private String password;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
+    		
         name = "users_roles",
         joinColumns = @JoinColumn(
+        		
             name = "user_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(
             name = "role_id", referencedColumnName = "id"))
     
-    private List < Role > roles ;;
+    private List < Role > roles ;
 
     public User() {}
 

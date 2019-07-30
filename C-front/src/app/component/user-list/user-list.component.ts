@@ -30,6 +30,7 @@ displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email',''];
   reloadData() {
 
     this.users = this.userService.getUsersList();
+    console.log(this.users);
   }
 
   deleteUser(id: number) {

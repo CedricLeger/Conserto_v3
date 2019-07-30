@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { BuiltinMethod } from '@angular/compiler';
 import { headersToString } from 'selenium-webdriver/http';
+import { User } from '../module/user';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  createUser(user: Object): Observable<Object> {
+  createUser(user: User): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
@@ -41,9 +42,9 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/${id}`)
   }
   getUsersList(): Observable<any> {
-    // return this.http.get(`${this.baseUrl}/`);
+    // return this.http.get(`${this.baseUrl}`);
 
    const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
-   return this.http.get(this.baseUrl, {headers});
+   return this.http.get(`${this.baseUrl}`, {headers});
   }
 }

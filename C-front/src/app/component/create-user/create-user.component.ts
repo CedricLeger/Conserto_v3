@@ -44,7 +44,8 @@ export class CreateUserComponent implements OnInit {
       password: ['', Validators.required],
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      //   roles: ['']
+      // admin : [''],
+        // roles: ['']
     });
   }
 
@@ -55,7 +56,11 @@ export class CreateUserComponent implements OnInit {
   }
 
   save() {
-
+    // if (this.user.admin) {
+    //   this.user.roles = 'ROLE_ADMIN';
+    // } else {
+    // this.user.roles = 'ROLE_USER';
+    // }
     console.log('test1 : ' + this.user);
     this.userService.createUser(this.user)
     // rajouter un role au user avant l'enregistrement

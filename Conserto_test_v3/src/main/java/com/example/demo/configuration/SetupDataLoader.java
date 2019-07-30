@@ -10,11 +10,13 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.demo.repository.ActivityRepository;
+import com.example.demo.repository.CategorieRepository;
 import com.example.demo.repository.EventRepository;
 import com.example.demo.repository.PrivilegeRepository;
 import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.model.Activity;
+import com.example.demo.model.Categorie;
 import com.example.demo.model.Event;
 import com.example.demo.model.Privilege;
 import com.example.demo.model.Role;
@@ -45,6 +47,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     
     @Autowired
     private EventRepository eventRepository;
+    
+    @Autowired
+    private CategorieRepository categorieRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -79,7 +84,9 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
         // == create initial user
        createUserIfNotFound("tyty", "tyty", "tyty", "tyty", new ArrayList<Role>(Arrays.asList(userRole)));
        createUserIfNotFound("jojo", "jojo", "user", "jojo", new ArrayList<Role>(Arrays.asList(adminRole)));
-       
+       createCategorieIfNotFound("Sport");
+       createCategorieIfNotFound("Jeux société");
+       createCategorieIfNotFound("Repas");
         createActivityIfNotFound("test","test","ici",true,true,today,"12:00");
         createEventIfNotFound("name","content",today,"localisation");
         alreadySetup = true;
@@ -142,7 +149,8 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     	activity = activityRepository.save(activity);
     	return activity;
     }
-private final Event createEventIfNotFound(final String name,final String content ,final Date date ,final String localisation) {
+    @Transactional
+    private final Event createEventIfNotFound(final String name,final String content ,final Date date ,final String localisation) {
     	
     	Event event = eventRepository.findByName(name);
     	if(event == null) {
@@ -157,6 +165,19 @@ private final Event createEventIfNotFound(final String name,final String content
     	event = eventRepository.save(event);
     	return event;
     }
+    @Transactional
+    private final Categorie createCategorieIfNotFound(final String name) {
+	Categorie categorie = categorieRepository.findByName(name);
+	if(categorie == null) {
+		categorie = new Categorie();
+		categorie.setName(name);
+		
+		
+		}
+
+	categorie = categorieRepository.save(categorie);
+	return categorie;
+}
     
 
 }

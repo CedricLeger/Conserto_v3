@@ -88,7 +88,7 @@ private final Event createEventIfNotFound(final String name,final String content
     }
 
 @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-public Map<String, Boolean> deleteActivity(@PathVariable(value = "id") Long eventId)
+public Map<String, Boolean> deleteEvent(@PathVariable(value = "id") Long eventId)
      throws ResourceNotFoundException {
     Event event = eventRepository.findById(eventId)
    .orElseThrow(() -> new ResourceNotFoundException("Event not found for this id :: " + eventId));

@@ -66,7 +66,8 @@ public currentUser: Observable<User>;
 
   logOut() {
     console.log('Tentative de déconnexion');
-    sessionStorage.removeItem('email')
+// tslint:disable-next-line: no-unused-expression
+    sessionStorage.clear;
   }
 
   // Permet de récupérer l'utilisateur en session par son email

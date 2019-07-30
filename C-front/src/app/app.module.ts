@@ -21,6 +21,9 @@ import { ActivityListComponent } from './component/activity-list/activity-list.c
 import {MatInputModule,MatOptionModule, MatSelectModule, MatIconModule} from '@angular/material'
 import {MatTableDataSource} from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material';
+import { CreateCategorieComponent } from './component/create-categorie/create-categorie.component';
+import { CategoriesComponent } from './component/categories/categories.component';
+import { SurveyComponent } from './component/survey/survey.component';
 
 
 @NgModule({
@@ -33,6 +36,10 @@ import { MatFormFieldModule } from '@angular/material';
     CreateActivitiesComponent,
     CreateEventsComponent,
     ActivityListComponent,
+    CreateCategorieComponent,
+    CreateCategorieComponent,
+    CategoriesComponent,
+    SurveyComponent
 
 
 

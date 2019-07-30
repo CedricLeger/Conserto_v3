@@ -1,0 +1,49 @@
+<h3>Create Categorie</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form
+    method="post"
+    [formGroup]="createCategorieFormGroup"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form">
+      <mat-form-field class="form">
+        <input
+          formControlName="name"
+          matInput
+          placeholder="name"
+          type="text"
+          required
+          name="name"
+          class="form-control"
+        />
+      </mat-form-field>
+    </div>
+  <button mat-button color="accent" type="submit" [disabled]="!createCategorieFormGroup.valid" >Submit</button>
+  </form>
+
+
+      <!-- <h2>User List</h2>
+
+    <div class="panel-body">
+
+
+        <table class="table table-striped">
+       <thead>
+          <tr>
+              <th>Id</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let categorie of categorie ">
+              <td>{{categorie.id}}</td>
+            <td>{{categorie.name}}</td>
+
+            <td><button (click)="deleteCategorie(categorie.id)" class="btn btn-danger">Delete</button>
+             </td>
+
+        </tbody>
+        </table>
+    </div> -->
+
+

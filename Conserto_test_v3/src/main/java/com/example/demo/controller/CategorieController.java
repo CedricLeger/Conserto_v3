@@ -13,8 +13,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,7 +31,6 @@ import com.example.demo.repository.CategorieRepository;
 
 @RestController @CrossOrigin("*")
 @RequestMapping("/api/v1/categorie")
-
 public class CategorieController {
 	
 	@Autowired
@@ -37,17 +38,27 @@ public class CategorieController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	   public List<Categorie> getAllCategorie(){ 
-	   	
+		
+	   		
 	       return categorieRepository.findAll();
 	   }
+	   @GetMapping("/categorie/{id}")
+	    public ResponseEntity<Categorie> getUserById(@PathVariable(value = "id") Long categorieId)
+	        throws ResourceNotFoundException {
+	        Categorie categorie = categorieRepository.findById(categorieId)
+	          .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + categorieId));
+	        System.out.println(categorie);
+	        return ResponseEntity.ok().body(categorie);
+	   }
 	   	     
-	    @PostMapping("")
+	   @RequestMapping(method=RequestMethod.POST)
 	    public Categorie createCategorie( Categorie categorie)  {
 	   
 	    		return createCategorieIfNotFound(categorie.getName());
 	    }
+	   
 	private final Categorie createCategorieIfNotFound(final String name) {
-//		String testName = "bbbbbbb";
+//		
 		String testName = name;
 			
 	    	Categorie categorie = categorieRepository.findByName(name);
@@ -62,6 +73,22 @@ public class CategorieController {
 	    	return categorie;
 	    }
 
+	
+	@PutMapping("/{id}")
+    public ResponseEntity<Categorie> updateCategorie(@PathVariable(value = "id") Long categorieId,
+         @Valid @RequestBody Categorie categorieDetails) throws ResourceNotFoundException {
+        Categorie categorie = categorieRepository.findById(categorieId)
+        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + categorieId));
+
+        categorie.setName(categorieDetails.getName());
+        categorie.setNbOfLike(categorieDetails.getNbOfLike());
+        final Categorie updatedCategorie = categorieRepository.save(categorie);
+        return ResponseEntity.ok(updatedCategorie);
+    }
+	
+	
+	
+	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public Map<String, Boolean> deleteCategorie(@PathVariable(value = "id") Long categorieId)
 	     throws ResourceNotFoundException {

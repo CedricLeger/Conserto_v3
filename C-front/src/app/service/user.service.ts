@@ -35,16 +35,20 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<any> {
+
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
 
-  getUserRole(id:number) : Observable<any>{
+  getUserRole(id: number) : Observable<any>{
     return this.http.get(`${this.baseUrl}/${id}`)
   }
   getUsersList(): Observable<any> {
-    // return this.http.get(`${this.baseUrl}`);
 
-   const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
-   return this.http.get(`${this.baseUrl}`, {headers});
+    return this.http.get<any>(`${this.baseUrl}`);
+
+
+  //  const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
+  //  return this.http.get<any>(`${this.baseUrl}`, {headers});
   }
 }
+

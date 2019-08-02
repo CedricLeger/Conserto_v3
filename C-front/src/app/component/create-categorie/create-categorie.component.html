@@ -1,12 +1,8 @@
 <h3>Create Categorie</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form
-    method="post"
-    [formGroup]="createCategorieFormGroup"
-    (ngSubmit)="onSubmit()"
-  >
-    <div class="form">
-      <mat-form-field class="form">
+  <form [formGroup]="createCategorieFormGroup" (ngSubmit)="onSubmit(createCategorieFormGroup.value)">
+    <div class="form-group">
+      <mat-form-field appearance="standard" class="form">
         <input
           formControlName="name"
           matInput
@@ -18,11 +14,18 @@
         />
       </mat-form-field>
     </div>
-  <button mat-button color="accent" type="submit" [disabled]="!createCategorieFormGroup.valid" >Submit</button>
+    <button
+      mat-button
+      color="accent"
+      type="submit"
+      [disabled]="!createCategorieFormGroup.valid"
+    >
+      Submit
+    </button>
   </form>
+</div>
 
-
-      <!-- <h2>User List</h2>
+<!-- <h2>User List</h2>
 
     <div class="panel-body">
 
@@ -45,5 +48,3 @@
         </tbody>
         </table>
     </div> -->
-
-

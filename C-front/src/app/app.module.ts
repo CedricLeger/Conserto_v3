@@ -18,12 +18,14 @@ import { CreateEventsComponent } from './component/create-events/create-events.c
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { ActivityListComponent } from './component/activity-list/activity-list.component';
-import {MatInputModule,MatOptionModule, MatSelectModule, MatIconModule} from '@angular/material'
-import {MatTableDataSource} from '@angular/material/table';
+import {MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatCardModule} from '@angular/material'
+import { MatTableModule } from '@angular/material'
 import { MatFormFieldModule } from '@angular/material';
 import { CreateCategorieComponent } from './component/create-categorie/create-categorie.component';
 import { CategoriesComponent } from './component/categories/categories.component';
 import { SurveyComponent } from './component/survey/survey.component';
+import { HomeComponent } from './component/home/home.component';
+
 
 
 @NgModule({
@@ -39,7 +41,10 @@ import { SurveyComponent } from './component/survey/survey.component';
     CreateCategorieComponent,
     CreateCategorieComponent,
     CategoriesComponent,
-    SurveyComponent
+    SurveyComponent,
+    HomeComponent,
+
+
 
 
 
@@ -55,7 +60,7 @@ import { SurveyComponent } from './component/survey/survey.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
-    MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatFormFieldModule
+    MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatFormFieldModule,MatTableModule,MatCardModule
 
   ],
   providers: [AuthenticationService],

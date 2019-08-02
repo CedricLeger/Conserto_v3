@@ -1,69 +1,264 @@
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Activity List</h2>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-            <th>Id</th>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Localisation</th>
-          <th>Condition</th>
-          <th>Covered by Conserto</th>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Actions</th>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+             <h2>Activity List</h2>
+            <div>
+              <mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
 
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let activity of activity| async">
-          <td>{{activity.id}}</td>
-          <td>{{activity.name}}</td>
-          <td>{{activity.content}}</td>
-          <td>{{activity.localisation}}</td>
-          <td>{{activity.condition}}</td>
-          <td>{{activity.cover}}</td>
-          <td>{{activity.date| date: 'dd/MM/yyyy'}}</td>
-          <td>{{activity.date |date:'HH:mm a z':'+0000'}}</td>
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.id}} </mat-cell>
+              </ng-container>
 
-          <!-- <td>{{activity.date |date:'HH:mm:ss'}}</td> -->
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.name}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="content">
+                <mat-header-cell *matHeaderCellDef> Content </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.content}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="localisation">
+                <mat-header-cell *matHeaderCellDef> Localisation </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.localisation}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="condition">
+                <mat-header-cell *matHeaderCellDef> Condition </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.condition}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="cover">
+                <mat-header-cell *matHeaderCellDef> Cover </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.cover}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.date| date: 'dd/MM/yyyy'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.date |date:'HH:mm '}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                      <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+                  <button (click)="deleteActivity(row.id)" mat-icon-button matTooltip="Click to Delete"  class="iconbutton" color="warn">
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns1"></mat-header-row>>
+              <mat-row *matRowDef="let row; columns: displayedColumns1;"></mat-row>>
+              </mat-table>
+            </div>
 
 
-          <td><button (click)="deleteActivity(activity.id)" class="btn btn-danger">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="panel-heading">
-    <h2>Event List</h2>
-  </div>
-  <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-              <th>Id</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Localisation</th>
-             <th>Date</th>
-            <th>Time</th>
-            <th>Actions</th>
+            <h2>Event List</h2>
+            <div>
+              <mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let event of event| async">
-            <td>{{event.id}}</td>
-            <td>{{event.name}}</td>
-            <td>{{event.content}}</td>
-            <td>{{event.localisation}}</td>
-            <td>{{event.date| date: 'dd/MM/yyyy'}}</td>
-            <td>{{event.date |date:'HH:mm a z':'+0000'}}</td>
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.id}} </mat-cell>
+              </ng-container>
 
-            <td><button (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
-            </td>
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.name}} </mat-cell>
+              </ng-container>
+
+              <!-- Weight Column -->
+              <ng-container matColumnDef="content">
+                <mat-header-cell *matHeaderCellDef> Content </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.content}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="localisation">
+                <mat-header-cell *matHeaderCellDef> Localisation </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.localisation}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.date| date: 'dd/MM/yyyy'}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+                <mat-cell *matCellDef="let event"> {{event.date |date:'HH:mm '}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                      <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+                  <button (click)="deleteEvent(row.id)" mat-icon-button matTooltip="Click to Delete"  class="iconbutton" color="warn">
+                      <mat-icon aria-label="Delete">delete</mat-icon>
+                    </button>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>>
+              <mat-row *matRowDef="let row; columns: displayedColumns2;"></mat-row>>
+              </mat-table>
+            </div>
+
+
+
+            <div class="container">
+              <div class="row">
+                <div class="col-sm">
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title></mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+                <div class="col-sm">
+                  <mat-card class="example-card">
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title></mat-card-title>
+                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                      <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                      </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                      <button mat-button>LIKE</button>
+                      <button mat-button>SHARE</button>
+                    </mat-card-actions>
+                  </mat-card>
+                </div>
+                <div class="col-sm">
+                  <div class="col-sm">
+                    <mat-card class="example-card">
+                      <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title></mat-card-title>
+                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                      </mat-card-header>
+                      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                      <mat-card-content>
+                        <p>
+                          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                          bred for hunting.
+                        </p>
+                      </mat-card-content>
+                      <mat-card-actions>
+                        <button mat-button>LIKE</button>
+                        <button mat-button>SHARE</button>
+                      </mat-card-actions>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h2>Activity List</h2>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                        <th>Id</th>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Localisation</th>
+                      <th>Condition</th>
+                      <th>Covered by Conserto</th>
+                      <th>Date</th>
+                      <th>Time</th>
+                      <th>Actions</th>
+
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let activity of activity| async">
+                      <td>{{activity.id}}</td>
+                      <td>{{activity.name}}</td>
+                      <td>{{activity.content}}</td>
+                      <td>{{activity.localisation}}</td>
+                      <td>{{activity.condition}}</td>
+                      <td>{{activity.cover}}</td>
+                      <td>{{activity.date| date: 'dd/MM/yyyy'}}</td>
+                      <td>{{activity.date |date:'HH:mm a z':'+0000'}}</td>
+
+
+
+
+                      <td><button (click)="deleteActivity(activity.id)" class="btn btn-danger">Delete</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="panel-heading">
+                <h2>Event List</h2>
+              </div>
+              <div class="panel-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                          <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Localisation</th>
+                         <th>Date</th>
+                        <th>Time</th>
+                        <th>Actions</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let event of event| async">
+                        <td>{{event.id}}</td>
+                        <td>{{event.name}}</td>
+                        <td>{{event.content}}</td>
+                        <td>{{event.localisation}}</td>
+                        <td>{{event.date| date: 'dd/MM/yyyy'}}</td>
+                        <td>{{event.date |date:'HH:mm a z':'+0000'}}</td>
+
+                        <td><button (click)="deleteEvent(event.id)" class="btn btn-danger">Delete</button>
+                        </td>
+             -->

@@ -1,19 +1,22 @@
 
-
-
-
 <div>
+
+
+
 <form class="example-form">
-  <mat-form-field class="email">
+  <mat-form-field appearance="standard" class="email">
     <input matInput placeholder="Your email" type="text" value="email" name="email" [(ngModel)]="email">
   </mat-form-field>
 
 
-  <mat-form-field class="password">
+  <mat-form-field appearance="standard" class="password">
     <input matInput placeholder="Your password" type="password" value="password" name="password" [(ngModel)]="password">
   </mat-form-field>
 </form>
 <button mat-button color="accent" (click)=checkLogin() class="submit" >Submit</button>
+<ul>
+
+
 
 
 <!--

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders,HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Categorie } from '../module/categorie';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +27,12 @@ export class CategorieService {
     return this.http.post(`${this.baseUrl}`, categorie);
   }
 
-  updateCategorie(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  // updateCategorie(id: number, value: any): Observable<Object> {
+  //   return this.http.put(`${this.baseUrl}/${id}`, value);
+  // }
+  updateCategorie(categorie: Categorie): Observable<Categorie>{
+      const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
+      return this.http.put<Categorie>(`${this.baseUrl}`, categorie, {headers}).pipe(map(()=>categorie));
   }
 
   deleteCategorie(id: number): Observable<any> {
@@ -35,7 +40,7 @@ export class CategorieService {
   }
 
   getCategorieList(): Observable<any> {
-   const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
-   return this.http.get(this.baseUrl, {headers});
+  //  const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
+   return this.http.get(this.baseUrl);
   }
 }

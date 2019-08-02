@@ -68,6 +68,7 @@ public class UserController {
     
     @GetMapping("/users")
     public List<User> getAllUsers(){ 
+    	System.out.println("tous mes users : "+userRepository.findAll());
     	//test
 //    	System.out.println("TEST : "+roleRepository.findByName("ROLE_USER"));
         return userRepository.findAll();
@@ -93,6 +94,7 @@ public class UserController {
    
     public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password,  final List<Role> roles) {
         User user = userRepository.findByEmail(email);
+        
         if (user == null) {
         	
             user = new User();
@@ -104,14 +106,14 @@ public class UserController {
 
 
         }
-        List<Role> r = new ArrayList<>();
-        if (roles != null) {
-        	r.addAll(roles);
-        }
-        Role test = roleRepository.findByName("ROLE_USER");
-        r.add(test) ;
+//        List<Role> r = new ArrayList<>();
+//        if (roles != null) {
+//        	r.addAll(roles);
+//        }
+//        Role test = roleRepository.findByName("ROLE_USER");
+//        r.add(test) ;
         
-        user.setRoles(r);
+//        user.setRoles(r);
         user = userRepository.save(user);
         return user;
     }
@@ -135,7 +137,7 @@ public class UserController {
          throws ResourceNotFoundException {
         User user = userRepository.findById(userId)
        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-
+        
         userRepository.delete(user);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);

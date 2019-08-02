@@ -22,7 +22,7 @@ const routes: Routes = [
 { path: 'users/detail/id', component: UserDetailsComponent},
 { path: 'categorie', component : CreateCategorieComponent},
 { path: 'allcategorie', component : CategoriesComponent},
-{ path : 'survey', component : SurveyComponent},
+{ path : 'survey', component : SurveyComponent,canActivate: [AuthGaurdService]},
 
 
 

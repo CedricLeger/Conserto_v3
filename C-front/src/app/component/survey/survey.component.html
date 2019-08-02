@@ -9,11 +9,11 @@
   </tr>
 </thead>
 <tbody>
-  <tr *ngFor="let categorie of categories| async ; let i = index ">
-    <td>{{i}}</td>
+  <tr *ngFor="let categorie of categories| async  ">
+    <td>{{categorie.id}}</td>
     <td>{{categorie.name}}</td>
-    <td>{{categorie.nbOfVote}}</td>
-    <td><button (click)=voteButtonClick()>VoteFor</button></td>
+    <td>{{categorie.nbOfLike}}</td>
+    <td><button (click)=voteButtonClick(categorie.id)>VoteFor</button></td>
   </tr>
 </tbody>
 </table>

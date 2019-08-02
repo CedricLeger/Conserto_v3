@@ -50,26 +50,29 @@ save() {
   console.log(this.categorie);
   this.categorieService.createCategorie(this.categorie)
       .subscribe(data => console.log(data), error => console.log(error));
-  console.log('test : ' + this.categorie);
+  console.log('test : ' + this.categorie.name);
   this.gotoList();
 
   }
 onSubmit() {
 
     this.submitted = true;
-
+    console.log('retour form : '+this.createCategorieFormGroup.get(name));
     // this.categorie.name = this.createCategorieFormGroup.get(name).value;
     Object.keys(this.createCategorieFormGroup.controls).forEach(key => {
       this.categorie[key] = this.createCategorieFormGroup.get(key).value;
     });
-    // console.log(this.categorie.name);
+    console.log('just avant le save:'+this.categorie.name);
     this.save();
+
     this.gotoList();
   }
 
 
 gotoList(){
-    this.router.navigate(['/allcategorie']);
+
+ this.router.navigate(['/allcategorie']);
+
 
   }
 

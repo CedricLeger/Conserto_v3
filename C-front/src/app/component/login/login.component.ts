@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   invalidLogin = false;
+  hide = true;
 
   constructor(private router: Router,
               private loginservice: AuthenticationService) { }

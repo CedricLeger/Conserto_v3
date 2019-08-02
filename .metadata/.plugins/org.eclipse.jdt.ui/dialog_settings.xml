@@ -40,7 +40,7 @@
 		<item key="DIALOG_X_ORIGIN" value="687"/>
 		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="552"/>
-		<item key="DIALOG_HEIGHT" value="869"/>
+		<item key="DIALOG_HEIGHT" value="760"/>
 		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
 	</section>
 	<section name="JavaSearchPage">
@@ -118,10 +118,10 @@
 		<item key="OmitCallToSuper" value="false"/>
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
-		<item key="DIALOG_X_ORIGIN" value="826"/>
-		<item key="DIALOG_Y_ORIGIN" value="163"/>
+		<item key="DIALOG_X_ORIGIN" value="754"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="612"/>
-		<item key="DIALOG_HEIGHT" value="849"/>
+		<item key="DIALOG_HEIGHT" value="760"/>
 		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.typehierarchy.QuickHierarchy">
@@ -138,7 +138,7 @@
 		<item key="DIALOG_X_ORIGIN" value="649"/>
 		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="628"/>
-		<item key="DIALOG_HEIGHT" value="869"/>
+		<item key="DIALOG_HEIGHT" value="760"/>
 		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
 	</section>
 	<section name="RefactoringWizard.preview">

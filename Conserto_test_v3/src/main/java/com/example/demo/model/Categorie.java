@@ -14,16 +14,28 @@ public class Categorie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
     private String name;
+    private int nbOfLike=0;
     
     
     
     
     //constructors
+    
+    
 	public Categorie(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+
+	public Categorie(Long id, String name, int nbOfLike) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nbOfLike = nbOfLike;
 	}
 
 
@@ -62,11 +74,23 @@ public class Categorie {
 	}
 
 
+	public int getNbOfLike() {
+		return nbOfLike;
+	}
+
+
+	public void setNbOfLike(int nbOfLike) {
+		this.nbOfLike = nbOfLike;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Categorie [id=" + id + ", name=" + name + "]";
+		return "Categorie [id=" + id + ", name=" + name + ", nbOfLike=" + nbOfLike + "]";
 	}
-    
+
+
+
     
     
 }

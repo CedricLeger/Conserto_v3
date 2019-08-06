@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
-import { MatTableModule } from '@angular/material'
+import { MatTableModule, MatDialog } from '@angular/material'
 import {MatTableDataSource} from '@angular/material/table';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 
@@ -21,7 +21,7 @@ export class UserListComponent implements OnInit {
 
   constructor(private userService: UserService,
               private router: Router,
-              ) {}
+              private dialog: MatDialog) {}
 
 
 
@@ -54,22 +54,22 @@ displayedColumns = ['id', 'firstname', 'lastname', 'email', 'role', 'action'];
         },
         error => console.log(error));
   }
-  // openDialog(): void {
-  //   const dialogRef = this.dialog.open(EditUserComponent, {
-  //     width: '400px',
-  //     data: {id:this.user.id,
-  //           firstname: this.user.firstName,
-  //           lastname:this.user.lastName,
-  //           email:this.user.email}
-  //   });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      width: '400px',
+      // data: {id:this.user.id,
+      //       firstname: this.user.firstName,
+      //       lastname:this.user.lastName,
+      //       email:this.user.email}
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log('The dialog was closed');
-  //     this.user = result;
-  //   });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.user = result;
+    });
   }
 
-
+}
 
 
 

@@ -16,7 +16,7 @@ import { CreateActivitiesComponent } from './component/create-activities/create-
 import { CreateEventsComponent } from './component/create-events/create-events.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
 import { ActivityListComponent } from './component/activity-list/activity-list.component';
 import {MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatCardModule,MatMenuModule} from '@angular/material'
 import { MatTableModule } from '@angular/material'
@@ -52,6 +52,7 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
 
 
 
+
   ],
   imports: [
     BrowserModule,
@@ -62,7 +63,16 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
-    MatInputModule, MatOptionModule, MatSelectModule, MatIconModule, MatFormFieldModule,MatTableModule,MatCardModule,MatMenuModule
+
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatCardModule,
+    MatMenuModule,
+    MatDialogModule
 
   ],
   providers: [AuthenticationService],

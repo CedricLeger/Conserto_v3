@@ -84,6 +84,7 @@ export class CreateUserComponent implements OnInit {
     });
     this.save();
     this.gotoList();
+    this.refresh();
   }
 
   // retour à la page User apres la création d'un User
@@ -91,4 +92,8 @@ export class CreateUserComponent implements OnInit {
     this.router.navigate(['/users']);
 
   }
+  refresh(): void {
+    window.location.reload();
+}
+
 }

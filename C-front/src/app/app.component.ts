@@ -13,7 +13,7 @@ import { User } from 'src/app/module/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'C-front';
+
 
 
 }

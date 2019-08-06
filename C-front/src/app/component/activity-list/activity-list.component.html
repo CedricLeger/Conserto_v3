@@ -3,19 +3,19 @@
             <div>
               <mat-table [dataSource]="dataSource1" class="mat-elevation-z8">
 
-              <!-- Position Column -->
+
               <ng-container matColumnDef="id">
                 <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
                 <mat-cell *matCellDef="let activity"> {{activity.id}} </mat-cell>
               </ng-container>
 
-              <!-- Name Column -->
+
               <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
                 <mat-cell *matCellDef="let activity"> {{activity.name}} </mat-cell>
               </ng-container>
 
-              <!-- Weight Column -->
+             
               <ng-container matColumnDef="content">
                 <mat-header-cell *matHeaderCellDef> Content </mat-header-cell>
                 <mat-cell *matCellDef="let activity"> {{activity.content}} </mat-cell>
@@ -39,7 +39,7 @@
               </ng-container>
               <ng-container matColumnDef="time">
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-                <mat-cell *matCellDef="let activity"> {{activity.date |date:'HH:mm '}} </mat-cell>
+                <mat-cell *matCellDef="let activity"> {{activity.date |date:'HH:mm' : 'UTC'}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="action">
@@ -93,7 +93,7 @@
               </ng-container>
               <ng-container matColumnDef="time">
                 <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
-                <mat-cell *matCellDef="let event"> {{event.date |date:'HH:mm '}} </mat-cell>
+                <mat-cell *matCellDef="let event"> {{event.date |date:'HH:mm' : 'UTC'}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="action">
@@ -115,68 +115,7 @@
 
 
 
-            <div class="container">
-              <div class="row">
-                <div class="col-sm">
-                  <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title></mat-card-title>
-                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                    <mat-card-content>
-                      <p>
 
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-                <div class="col-sm">
-                  <mat-card class="example-card">
-                    <mat-card-header>
-                      <div mat-card-avatar class="example-header-image"></div>
-                      <mat-card-title></mat-card-title>
-                      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                    </mat-card-header>
-                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                    <mat-card-content>
-                      <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                        bred for hunting.
-                      </p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                      <button mat-button>LIKE</button>
-                      <button mat-button>SHARE</button>
-                    </mat-card-actions>
-                  </mat-card>
-                </div>
-                <div class="col-sm">
-                  <div class="col-sm">
-                    <mat-card class="example-card">
-                      <mat-card-header>
-                        <div mat-card-avatar class="example-header-image"></div>
-                        <mat-card-title></mat-card-title>
-                        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                      </mat-card-header>
-                      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                      <mat-card-content>
-                        <p>
-                          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                          bred for hunting.
-                        </p>
-                      </mat-card-content>
-                      <mat-card-actions>
-                        <button mat-button>LIKE</button>
-                        <button mat-button>SHARE</button>
-                      </mat-card-actions>
 
 
 

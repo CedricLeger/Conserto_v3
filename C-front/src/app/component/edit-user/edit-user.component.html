@@ -1,0 +1,78 @@
+<h3>Edit User</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <!-- Il faut préciser au form le FormGroup que l'on a créer dans le fichier TS grace à la directive [formGroup] -->
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <mat-form-field  class="form">
+        <input
+          formControlName="firstName"
+          matInput
+          placeholder="FirstName"
+          type="text"
+          required
+          name="firstname"
+          class="form-control"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field  class="form">
+        <input
+          formControlName="lastName"
+          matInput
+          placeholder="LastName"
+          type="text"
+          required
+          name="lastname"
+          class="form-control"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field  class="form">
+        <input
+          formControlName="email"
+          matInput
+          placeholder="Email"
+          type="email"
+          required
+          name="email"
+          class="form-control"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field  class="form">
+        <input
+          formControlName="password"
+          matInput
+          placeholder="password"
+          type="password"
+          required
+          name="password"
+          class="form-control"
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-checkbox
+        matInput
+        placeholder="admin"
+        type="checkbox"
+        name="admin"
+        class="form-control"
+        >Administrateur
+      </mat-checkbox>
+    </div>
+
+    <button
+      mat-button
+      color="accent"
+      type="submit"
+      [disabled]="!createUserFormGroup.valid"
+    >
+      Submit
+    </button>
+
+    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
+  </form>

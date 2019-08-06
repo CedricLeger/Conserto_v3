@@ -72,6 +72,7 @@ export class CreateActivitiesComponent implements OnInit {
     });
     this.save();
     this.gotoList();
+    this.refresh();
   }
 
   // retour à la page User apres la création d'un User
@@ -79,5 +80,9 @@ export class CreateActivitiesComponent implements OnInit {
     this.router.navigate(['/activities']);
 
   }
+  refresh(): void {
+    window.location.reload();
+}
+
 }
 

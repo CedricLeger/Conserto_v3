@@ -6,6 +6,7 @@ import { UserService } from 'src/app/service/user.service';
 import {CollectionViewer, DataSource} from '@angular/cdk/collections';
 import { MatTableModule } from '@angular/material'
 import {MatTableDataSource} from '@angular/material/table';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class UserListComponent implements OnInit {
   user: User = new User()
 
   constructor(private userService: UserService,
-              private router: Router) {}
+              private router: Router,
+              ) {}
 
 
 
@@ -52,11 +54,31 @@ displayedColumns = ['id', 'firstname', 'lastname', 'email', 'role', 'action'];
         },
         error => console.log(error));
   }
+  // openDialog(): void {
+  //   const dialogRef = this.dialog.open(EditUserComponent, {
+  //     width: '400px',
+  //     data: {id:this.user.id,
+  //           firstname: this.user.firstName,
+  //           lastname:this.user.lastName,
+  //           email:this.user.email}
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     this.user = result;
+  //   });
+  }
+
+
+
+
+
+
 
   // userDetails(id: number) {
   //   this.router.navigate(['users/detail', id]);
   // }
-}
+
 
 export class UserDataSource extends DataSource<any> {
 constructor(private userService: UserService) {

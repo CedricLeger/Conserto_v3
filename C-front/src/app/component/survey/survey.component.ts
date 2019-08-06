@@ -8,6 +8,7 @@ import { User } from 'src/app/module/user';
 import { Vote } from 'src/app/module/vote';
 import { VoteService } from 'src/app/service/vote.service';
 import { CategoriesComponent } from '../categories/categories.component';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-survey',
@@ -27,6 +28,9 @@ vote: Vote = new Vote();
               private router: Router,
               private voteService: VoteService,
               private userService: UserService ) { }
+
+  dataSource = new CategorieDataSource(this.categorieService);
+  displayedColumns = ["id", "name","nbOfLike" ,"action"];
 
 
 
@@ -89,3 +93,15 @@ vote: Vote = new Vote();
     // affiche les votes par catégorie
   }
 }
+
+export class CategorieDataSource extends DataSource<any> {
+  constructor(private userService: CategorieService) {
+    super();
+  }
+  connect():Observable<Categorie[]>{
+    return this.userService.getCategorieList();
+  }
+  disconnect(){}
+
+
+    }

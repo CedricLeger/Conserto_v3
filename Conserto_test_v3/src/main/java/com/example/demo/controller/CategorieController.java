@@ -52,23 +52,25 @@ public class CategorieController {
 	   }
 	   	     
 	   @RequestMapping(method=RequestMethod.POST)
-	    public Categorie createCategorie( Categorie categorie)  {
+	    public Categorie createCategorie(@Valid @RequestBody Categorie categorie)  {
 	   
 	    		return createCategorieIfNotFound(categorie.getName());
 	    }
 	   
 	private final Categorie createCategorieIfNotFound(final String name) {
 //		
-		String testName = name;
+		
 			
 	    	Categorie categorie = categorieRepository.findByName(name);
+	    	System.out.println("voici la catégorie a crée :" +name);
 	    	if(categorie == null) {
 	    		categorie = new Categorie();
-	    		categorie.setName(testName);
+	    		categorie.setName(name);
+	    		categorie.setNbOfLike(0);
 	    		
 	    		
 	    		}
-	    	System.out.println(categorie);
+	    	System.out.println("Je suis dans categorie"+categorie);
 	    	categorie = categorieRepository.save(categorie);
 	    	return categorie;
 	    }

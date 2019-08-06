@@ -66,6 +66,7 @@ onSubmit() {
     this.save();
 
     this.gotoList();
+    this.refresh();
   }
 
 
@@ -75,6 +76,10 @@ gotoList(){
 
 
   }
+  refresh(): void {
+    window.location.reload();
+}
+
 
 
 

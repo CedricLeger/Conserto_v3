@@ -11,6 +11,8 @@ import { ActivityListComponent } from './component/activity-list/activity-list.c
 import { CreateCategorieComponent } from './component/create-categorie/create-categorie.component';
 import { CategoriesComponent } from './component/categories/categories.component';
 import { SurveyComponent } from './component/survey/survey.component';
+import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { HomeComponent } from './component/home/home.component';
 
 const routes: Routes = [
 
@@ -22,10 +24,12 @@ const routes: Routes = [
 { path: 'users/detail/id', component: UserDetailsComponent},
 { path: 'categorie', component : CreateCategorieComponent},
 { path: 'allcategorie', component : CategoriesComponent},
-{ path : 'survey', component : SurveyComponent,canActivate: [AuthGaurdService]},
+{ path: 'survey', component : SurveyComponent,canActivate: [AuthGaurdService]},
+{ path: 'home', component : HomeComponent , canActivate: [AuthGaurdService]},
 
 
 
+{ path: 'edituser', component : EditUserComponent ,canActivate: [AuthGaurdService]},
 { path: 'createactivities', component: CreateActivitiesComponent, canActivate: [AuthGaurdService]},
 { path: 'createevent', component: CreateEventsComponent, canActivate: [AuthGaurdService]},
 { path: 'activities', component: ActivityListComponent, canActivate: [AuthGaurdService]}

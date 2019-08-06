@@ -88,6 +88,7 @@ export class CreateEventsComponent implements OnInit {
     });
     this.save();
     this.gotoList();
+    this.refresh();
   }
 
 
@@ -95,5 +96,9 @@ export class CreateEventsComponent implements OnInit {
     this.router.navigate(['/activities']);
 
   }
+  refresh(): void {
+    window.location.reload();
+}
+
 }
 

@@ -25,14 +25,14 @@ public class Categorie {
     
     
 	public Categorie(Long id, String name) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 	}
 
 
 	public Categorie(Long id, String name, int nbOfLike) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.nbOfLike = nbOfLike;
@@ -40,7 +40,7 @@ public class Categorie {
 
 
 	public Categorie(String name) {
-		super();
+		
 		this.name = name;
 	}
 	

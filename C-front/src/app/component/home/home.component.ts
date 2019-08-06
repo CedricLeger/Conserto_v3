@@ -3,6 +3,9 @@ import { ActivityService } from 'src/app/service/activity.service';
 import { EventService } from 'src/app/service/event.service';
 import { Observable } from 'rxjs';
 import { Activity } from 'src/app/module/activity';
+import { Event } from 'src/app/module/event';
+import { Router } from '@angular/router';
+import { DataSource } from '@angular/cdk/table';
 
 @Component({
   selector: 'app-home',
@@ -11,22 +14,42 @@ import { Activity } from 'src/app/module/activity';
 })
 export class HomeComponent implements OnInit {
 
-  activity: Observable<Activity[]>;
-  event: Observable<Event[]>;
+  activities: Observable<Activity[]>;
+  events: Observable<Event[]>;
+  activity: Activity = new Activity();
 
 
-  constructor(activityService: ActivityService,
-              eventService: EventService) { }
+  constructor(private activityService: ActivityService,
+              private eventService: EventService,
+              private router: Router) { }
 
-  ngOnInit() {
-    this.reloadData();
 
+              dataSource = new ActivityDataSource(this.activityService);
+              displayedColumns = ['id', 'name','content' , "localisation",'condition', "cover",'date','time','action'];
+
+
+              ngOnInit() {
+                this.reloadData();
+                this.eventreloadData();
+                console.log(this.activity);
+              }
+            // pour les activités
+              reloadData() {
+
+                this.activities = this.activityService.getActivitiesList();
+                console.log(this.activity);
+              }
+              eventreloadData() {
+                this.events = this.eventService.getEventList();
+              }
+
+}
+export class ActivityDataSource extends DataSource<any> {
+  constructor(private activityService: ActivityService, ) {
+    super();
   }
-
-  reloadData() {
-
-    this.activity = this.activityService.getActivitiesList();
-    this.event = this.eventService.getEventList();
+  connect(): Observable<Activity[] >{
+    return this.activityService.getActivitiesList();
   }
-
+  disconnect() {}
 }

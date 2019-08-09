@@ -38,19 +38,19 @@ vote: Vote = new Vote();
     this.reloadData();
   }
 
-  voteButtonClick( id:number){
-    this.categorieService.updateCategorie(this.categorie)
-    .subscribe(
-      data => {
-        console.log('nblike1:'+ this.categorie.nbOfLike);
-        this.categorie.nbOfLike = this.categorie.nbOfLike + 1;
-        console.log('nblike2:'+ this.categorie.nbOfLike);
-        console.log(data);
-        console.log(this.userService);
-        this.reloadData();
-      },
-      error => console.log(error));
-  }
+  // voteButtonClick( id:number){
+  //   this.categorieService.updateCategorie(this.categorie)
+  //   .subscribe(
+  //     data => {
+  //       console.log('nblike1:'+ this.categorie.nbOfLike);
+  //       this.categorie.nbOfLike = this.categorie.nbOfLike + 1;
+  //       console.log('nblike2:'+ this.categorie.nbOfLike);
+  //       console.log(data);
+  //       console.log(this.userService);
+  //       this.reloadData();
+  //     },
+  //     error => console.log(error));
+  // }
   // voteButtonClick(id: number) {
   //   this.categorie.id = id;
   //   console.log(this.categorie.id);

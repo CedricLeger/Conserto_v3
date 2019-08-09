@@ -82,13 +82,12 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
          Role userRole = createRoleIfNotFound("ROLE_USER", userPrivileges);
 
         // == create initial user
-       createUserIfNotFound("tyty", "tyty", "tyty", "tyty", new ArrayList<Role>(Arrays.asList(userRole)));
-       createUserIfNotFound("jojo", "jojo", "user", "jojo", new ArrayList<Role>(Arrays.asList(adminRole)));
+//       createUserIfNotFound("tyty", "tyty", "tyty", "tyty", new ArrayList<Role>(Arrays.asList(userRole)));
+//       createUserIfNotFound("jojo", "jojo", "user", "jojo", new ArrayList<Role>(Arrays.asList(adminRole)));
        createCategorieIfNotFound("Sport");
        createCategorieIfNotFound("Jeux société");
        createCategorieIfNotFound("Repas");
-        createActivityIfNotFound("test","test","ici",true,true,today,"12:00");
-        createEventIfNotFound("name","content",today,"localisation");
+       createEventIfNotFound("name","content",today,"localisation");
         alreadySetup = true;
     }
 
@@ -132,7 +131,7 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     }
     
     @Transactional
-    private final Activity createActivityIfNotFound(final String name,final String content ,final String localisation,final boolean condition, final boolean cover,final Date date , final String time) {
+    private final Activity createActivityIfNotFound(final String name,final String content ,final String localisation,final boolean condition, final boolean cover,final Date date ) {
     	
     	Activity activity = activityRepository.findByName(name);
     	if(activity == null) {
@@ -141,7 +140,6 @@ public class SetupDataLoader implements ApplicationListener<ContextRefreshedEven
     		activity.setContent(content);
     		activity.setLocalisation(localisation);
     		activity.setDate(date);
-    		activity.setTime(time);
     		activity.setCondition(condition);
     		activity.setCover(cover);
     		}

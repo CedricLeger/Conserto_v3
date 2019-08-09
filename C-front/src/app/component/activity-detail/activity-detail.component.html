@@ -1,0 +1,27 @@
+<mat-card  class="example-card">
+  <mat-card-header>
+<div mat-card-avatar class="example-header-image"></div>
+<mat-card-title><h1>{{activity.name}}</h1></mat-card-title>
+<mat-card-subtitle>Author : </mat-card-subtitle>
+</mat-card-header>
+<img mat-card-image src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBUgA5P.img?h=416&w=799&m=6&q=60&u=t&o=f&l=f&x=1047&y=377">
+<mat-card-content>
+<p class="description">
+  Description : {{activity.content}}
+</p>
+<p class = "information">
+  Lieu : {{activity.localisation}}
+  <br>
+  Date : {{activity.date | date: 'dd/MM/yyyy'}}
+  <br>
+  Horraire : {{activity.date | date: 'HH:mm' :  'UTC'}}
+  <br>
+  Prise en charge des frais par Conserto : {{activity.cover}}
+</p>
+</mat-card-content>
+<mat-card-actions>
+<button mat-button>I am in! Let's go!</button>
+<button mat-button>Not sure yet</button>
+<button mat-button>Maybe another time guys!</button>
+</mat-card-actions>
+</mat-card>

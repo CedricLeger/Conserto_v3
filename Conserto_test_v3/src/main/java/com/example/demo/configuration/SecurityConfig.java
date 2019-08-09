@@ -60,7 +60,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        source.registerCorsConfiguration("/**", configuration);
 //        return source;
 //    }
-//	
+////	
 //	
 //	@Override
 //    protected void configure(HttpSecurity http) throws Exception {
@@ -76,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .anyRequest().authenticated()
 //                .and()
 //            .formLogin()
-//                .loginPage("/login")
+//                .loginPage("/")
 //                .defaultSuccessUrl("/users")
 //                .failureUrl("/login?error")
 //                .permitAll()

@@ -1,4 +1,4 @@
-    <h2>User List</h2>
+    <h2>Categorie</h2>
 
     <!-- <div class="panel-body">
 
@@ -47,7 +47,7 @@
       <ng-container matColumnDef="action">
         <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button  (click)="updateCategorie(row.id)" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+          <button  (click)="startEdit(row.id)" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
               <mat-icon aria-label="Edit">edit</mat-icon>
             </button>
           <button (click)="deleteCategorie(row.id)" mat-icon-button matTooltip="Click to Delete"  class="iconbutton" color="warn">

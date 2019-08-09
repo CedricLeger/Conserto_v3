@@ -86,6 +86,21 @@ private final Event createEventIfNotFound(final String name,final String content
     	event = eventRepository.save(event);
     	return event;
     }
+@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+public ResponseEntity<Event> updateEvent(@PathVariable(value = "id") Long eventId,
+     @Valid @RequestBody Event eventDetails) throws ResourceNotFoundException {
+   Event event = eventRepository.findById(eventId)
+    .orElseThrow(() -> new ResourceNotFoundException("Activity not found for this id :: " + eventId));
+
+    event.setName(eventDetails.getName());
+    event.setContent(eventDetails.getContent());
+    event.setLocalisation(eventDetails.getLocalisation());
+    event.setDate(eventDetails.getDate());
+
+  
+    final Event updatedEvent = eventRepository.save(event);
+    return ResponseEntity.ok(updatedEvent);
+}
 
 @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 public Map<String, Boolean> deleteEvent(@PathVariable(value = "id") Long eventId)

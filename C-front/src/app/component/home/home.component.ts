@@ -42,6 +42,12 @@ export class HomeComponent implements OnInit {
               eventreloadData() {
                 this.events = this.eventService.getEventList();
               }
+              activityDetails(id:number){
+                this.router.navigate(['/activitydetail',id]);
+              }
+              eventDetails(id:number){
+                this.router.navigate(['/eventdetail',id]);
+              }
 
 }
 export class ActivityDataSource extends DataSource<any> {

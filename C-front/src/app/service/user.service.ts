@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { BuiltinMethod } from '@angular/compiler';
 import { headersToString } from 'selenium-webdriver/http';
 import { User } from '../module/user';
@@ -12,7 +12,8 @@ export class UserService {
 
 
 
-
+  dataChange: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+  dialogData: any;
   private baseUrl = 'http://localhost:8082/springboot-crud-rest/api/v1/users';
 
   // test pour l'authentification
@@ -22,6 +23,15 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+//test
+  get data():User[]{
+    return this.dataChange.value;
+  }
+  getDialogData() {
+    console.log("dialog data : "+this.dialogData);
+    return this.dialogData;
+  }
+
   getUser(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
@@ -30,9 +40,20 @@ export class UserService {
     return this.http.post(`${this.baseUrl}`, user);
   }
 
-  updateUser(user:User): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${user.id}`, user);
-  }
+updateUser(user:User){
+
+
+ return this.http.put(`${this.baseUrl}/${user.id}`,user).subscribe(data=>{
+
+    this.dialogData = user;
+    console.log("dans update User :"+ this.dialogData);
+
+
+  });
+}
+  // updateUser(user:User): Observable<Object> {
+  //   return this.http.put(`${this.baseUrl}/${user.id}`, user);
+  // }
 
   deleteUser(id: number): Observable<any> {
 

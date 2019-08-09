@@ -70,9 +70,9 @@ public class ActivityController {
     public Activity createActivity(@Valid @RequestBody Activity activity,BindingResult result)  {
     	
     	
-    		return createActivityIfNotFound(activity.getName(),activity.getContent(),activity.getDate(),activity.getTime(),activity.getLocalisation(),activity.getUsers(),activity.isCondition(),activity.isCover());
+    		return createActivityIfNotFound(activity.getName(),activity.getContent(),activity.getDate(),activity.getLocalisation(),activity.getUsers(),activity.isCondition(),activity.isCover());
     }
-private final Activity createActivityIfNotFound(final String name,final String content ,final Date date ,final String time,final String localisation,final Collection<User> users,final boolean condition, final boolean cover) {
+private final Activity createActivityIfNotFound(final String name,final String content ,final Date date ,final String localisation,final Collection<User> users,final boolean condition, final boolean cover) {
     	
     	Activity activity = activityRepository.findByName(name);
     	if(activity == null) {
@@ -81,7 +81,6 @@ private final Activity createActivityIfNotFound(final String name,final String c
     		activity.setContent(content);
     		activity.setLocalisation(localisation);
     		activity.setDate(date);
-    		activity.setTime(time);
     		activity.setCondition(condition);
     		activity.setCover(cover);
     		}
@@ -101,24 +100,23 @@ public Map<String, Boolean> deleteActivity(@PathVariable(value = "id") Long acti
     response.put("deleted", Boolean.TRUE);
     return response;
 }
-//
-//@PutMapping(path="/createactivities/{id}")
-//public ResponseEntity<Activity> updateActivity(@PathVariable(value = "id") Long activityId,
-//     @Valid @RequestBody Activity activityDetails) throws ResourceNotFoundException {
-//   Activity activity = activityRepository.findById(activityId)
-//    .orElseThrow(() -> new ResourceNotFoundException("Activity not found for this id :: " + activityId));
-//
-//    activity.setName(activityDetails.getName());
-//    activity.setContent(activityDetails.getContent());
-//    activity.setLocalisation(activityDetails.getLocalisation());
-//    activity.setDate(activityDetails.getDate());
-//    activity.setTime(activityDetails.getTime());
-//    activity.setCondition(activityDetails.isCondition());
-//    activity.setCover(activityDetails.isCover());
-//  
-//    final Activity updatedActivity = activityRepository.save(activity);
-//    return ResponseEntity.ok(updatedActivity);
-//}
+
+@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+public ResponseEntity<Activity> updateActivity(@PathVariable(value = "id") Long activityId,
+     @Valid @RequestBody Activity activityDetails) throws ResourceNotFoundException {
+   Activity activity = activityRepository.findById(activityId)
+    .orElseThrow(() -> new ResourceNotFoundException("Activity not found for this id :: " + activityId));
+
+    activity.setName(activityDetails.getName());
+    activity.setContent(activityDetails.getContent());
+    activity.setLocalisation(activityDetails.getLocalisation());
+    activity.setDate(activityDetails.getDate());
+    activity.setCondition(activityDetails.isCondition());
+    activity.setCover(activityDetails.isCover());
+  
+    final Activity updatedActivity = activityRepository.save(activity);
+    return ResponseEntity.ok(updatedActivity);
+}
 
    
 }

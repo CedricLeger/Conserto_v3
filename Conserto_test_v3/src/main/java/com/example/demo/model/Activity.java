@@ -33,7 +33,7 @@ public class Activity {
     private boolean condition;
     private boolean cover;
     private Date date;
-    private String time;
+   
     
     @ManyToMany
     @JoinTable(
@@ -49,7 +49,7 @@ public class Activity {
     }
 
 	public Activity(String name, String localisation, String content, boolean condition, boolean cover, Date date,
-			String time, Collection<User> users) {
+			 Collection<User> users) {
 		super();
 		this.name = name;
 		this.localisation = localisation;
@@ -57,13 +57,12 @@ public class Activity {
 		this.condition = condition;
 		this.cover = cover;
 		this.date = date;
-		this.time = time;
 		this.users = users;
 	}
 
 
-	public Activity(String name, String localisation, String content, boolean condition, boolean cover, Date date,
-			String time) {
+	public Activity(String name, String localisation, String content, boolean condition, boolean cover, Date date
+			) {
 		super();
 		this.name = name;
 		this.localisation = localisation;
@@ -71,18 +70,18 @@ public class Activity {
 		this.condition = condition;
 		this.cover = cover;
 		this.date = date;
-		this.time = time;
+		
 	}
 
 
-	public Activity(String name, String localisation, String content, boolean cover, Date date, String time) {
+	public Activity(String name, String localisation, String content, boolean cover, Date date) {
 		super();
 		this.name = name;
 		this.localisation = localisation;
 		this.content = content;
 		this.cover = cover;
 		this.date = date;
-		this.time = time;
+		
 	}
 
 	public Long getId() {
@@ -141,14 +140,6 @@ public class Activity {
 		this.date = date;
 	}
 
-	public String getTime() {
-		return time;
-	}
-
-	public void setTime(String time) {
-		this.time = time;
-	}
-
 	public Collection<User> getUsers() {
 		return users;
 	}
@@ -160,7 +151,7 @@ public class Activity {
 	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", name=" + name + ", localisation=" + localisation + ", content=" + content
-				+ ", condition=" + condition + ", cover=" + cover + ", date=" + date + ", time=" + time + ", users="
+				+ ", condition=" + condition + ", cover=" + cover + ", date=" + date + " users="
 				+ users + "]";
 	}
 		

@@ -17,13 +17,23 @@ public class Categorie {
 	
     private String name;
     private int nbOfLike=0;
-    
+    private int nbOfDislike=0;
     
     
     
     //constructors
     
     
+	public int getNbOfDislike() {
+		return nbOfDislike;
+	}
+
+
+	public void setNbOfDislike(int nbOfDislike) {
+		this.nbOfDislike = nbOfDislike;
+	}
+
+
 	public Categorie(Long id, String name) {
 		
 		this.id = id;
@@ -86,8 +96,11 @@ public class Categorie {
 
 	@Override
 	public String toString() {
-		return "Categorie [id=" + id + ", name=" + name + ", nbOfLike=" + nbOfLike + "]";
+		return "Categorie [id=" + id + ", name=" + name + ", nbOfLike=" + nbOfLike + ", nbOfDislike=" + nbOfDislike
+				+ "]";
 	}
+
+
 
 
 

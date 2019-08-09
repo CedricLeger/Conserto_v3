@@ -67,27 +67,29 @@ public class CategorieController {
 	    		categorie = new Categorie();
 	    		categorie.setName(name);
 	    		categorie.setNbOfLike(0);
+	    		categorie.setNbOfDislike(0);
 	    		
 	    		
 	    		}
-	    	System.out.println("Je suis dans categorie"+categorie);
+	    	
 	    	categorie = categorieRepository.save(categorie);
 	    	return categorie;
 	    }
 
 	
-	@PutMapping("/{id}")
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Categorie> updateCategorie(@PathVariable(value = "id") Long categorieId,
          @Valid @RequestBody Categorie categorieDetails) throws ResourceNotFoundException {
         Categorie categorie = categorieRepository.findById(categorieId)
-        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + categorieId));
+        .orElseThrow(() -> new ResourceNotFoundException("Categorie not found for this id :: " + categorieId));
 
         categorie.setName(categorieDetails.getName());
         categorie.setNbOfLike(categorieDetails.getNbOfLike());
+        categorie.setNbOfDislike(categorieDetails.getNbOfDislike());
         final Categorie updatedCategorie = categorieRepository.save(categorie);
         return ResponseEntity.ok(updatedCategorie);
     }
-	
+
 	
 	
 	

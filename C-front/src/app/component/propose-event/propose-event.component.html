@@ -1,0 +1,28 @@
+<h1>Proposed activity</h1>
+<p>Voici la liste des activités proposées pour l'évènement du mois prochain</p>
+<div class="container">
+  <div class="row">
+    <div *ngFor="let categorie of categories | async" class="col">
+        <mat-card  class="example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{categorie.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+
+          </mat-card-content>
+          <mat-card-actions>
+             <button (click)='positiveVote(categorie.id)' mat-button> <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="positive">{{categorie.nbOfLike}}</mat-icon></button>
+             <button mat-button> <mat-icon svgIcon="thumbs-down" aria-hidden="false" aria-label="negative"></mat-icon>{{categorie.nbOfDislike}}</button>
+
+             positif: {{categorie.nbOfLike}}
+             negatif : {{categorie.nbOfDislike}}
+          </mat-card-actions>
+
+        </mat-card>
+        <br><br>
+      </div>
+    </div>
+</div>
+
+

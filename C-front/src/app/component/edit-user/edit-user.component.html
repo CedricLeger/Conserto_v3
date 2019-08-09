@@ -1,7 +1,8 @@
-<h3>Edit User</h3>
-<div [hidden]="submitted" style="width: 400px;">
-  <!-- Il faut préciser au form le FormGroup que l'on a créer dans le fichier TS grace à la directive [formGroup] -->
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<!-- <h3>Edit User</h3>
+<div  style="width: 400px;">
+
+
+  <form [formGroup]="formControl" (ngSubmit)="submit()">
     <div class="form-group">
       <mat-form-field  class="form">
         <input
@@ -10,7 +11,7 @@
           placeholder="FirstName"
           type="text"
           required
-          name="firstname"
+          name="firstName"
           class="form-control"
         />
       </mat-form-field>
@@ -23,7 +24,7 @@
           placeholder="LastName"
           type="text"
           required
-          name="lastname"
+          name="lastName"
           class="form-control"
         />
       </mat-form-field>
@@ -66,13 +67,68 @@
     </div>
 
     <button
+
       mat-button
       color="accent"
       type="submit"
-      [disabled]="!createUserFormGroup.valid"
+      [mat-dialog-close]="1"
+      (click)="stopEdit()"
     >
       Submit
     </button>
+    <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
 
-    <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-  </form>
+  </form> -->
+
+
+
+
+
+  <div class="container">
+    <h3 mat-dialog-title>User id: {{data.id}}</h3>
+
+    <form class="mat-dialog-content" (ngSubmit)="submit()" #formControl="ngForm">
+
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #input class="form-control" placeholder="Id" [(ngModel)]="data.id" name="id" required >
+
+        </mat-form-field>
+      </div>
+
+      <!--Textarea for demo purposes-->
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #input class="form-control" placeholder="firstName" [(ngModel)]="data.firstName" name="firstName" required >
+
+        </mat-form-field>
+      </div>
+
+      <!--Contains mat-hint for characters count and has maxLengt set-->
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #inputstate class="form-control" placeholder="lastName" [(ngModel)]="data.lastName" name="lastName" maxlength="20" required >
+          <mat-hint align="end">{{inputstate.value?.length || 0}}/20</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form">
+          <mat-form-field color="accent">
+            <input matInput placeholder="email" [(ngModel)]="data.email" name="email">
+          </mat-form-field>
+      </div>
+
+      <div class="form">
+        <mat-form-field color="accent">
+          <textarea matInput #input class="form-control" placeholder="password" [(ngModel)]="data.password" name="password" required ></textarea>
+
+        </mat-form-field>
+      </div>
+
+
+      <div mat-dialog-actions>
+        <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="stopEdit()">Save</button>
+        <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+      </div>
+    </form>
+  </div>

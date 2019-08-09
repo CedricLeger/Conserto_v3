@@ -1,12 +1,15 @@
 import { Component, OnInit } from "@angular/core";
 import { Categorie } from "src/app/module/categorie";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { ActivityService } from "src/app/service/activity.service";
 import { EventService } from "src/app/service/event.service";
 import { Router } from "@angular/router";
 import { CategorieService } from "src/app/service/categorie.service";
 import { DataSource} from '@angular/cdk/table';
 import { interval, Subscription } from 'rxjs';
+import { EditCategorieComponent } from '../edit-categorie/edit-categorie.component';
+import { MatDialog } from '@angular/material';
+
 
 
 @Component({
@@ -19,10 +22,12 @@ export class CategoriesComponent implements OnInit {
 
   categories: Observable<Categorie[]>;
   categorie: Categorie = new Categorie();
+  editCategorie :Categorie = new Categorie();
 
   constructor(
     private categorieService: CategorieService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   dataSource = new CategorieDataSource(this.categorieService);
@@ -49,9 +54,21 @@ export class CategoriesComponent implements OnInit {
       error => console.log(error)
     );
   }
-  updateCategorie(id:number){
+  startEdit(id:number,name:string){
+    this.editCategorie.id = id;
+    const dialogRef = this.dialog.open(EditCategorieComponent, {
+      data:{id:id,name:name }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 1) {
+        const foundIndex = this.categorieService.dataChange.value.findIndex(x => x.id === this.editCategorie.id);
+        // for delete we use splice in order to remove single object from DataService
+        this.categorieService.dataChange.value[foundIndex] = this.categorieService.getDialogData();
+        // this.refreshTable();
 
-  }
+    }
+    });
+    }
 
   // AcitivtyDetails(id: number){
   //   this.router.navigate(['users/detail', id]);

@@ -68,7 +68,7 @@ public class UserController {
     
     @GetMapping("/users")
     public List<User> getAllUsers(){ 
-    	System.out.println("tous mes users : "+userRepository.findAll());
+//    	System.out.println("tous mes users : "+userRepository.findAll());
     	//test
 //    	System.out.println("TEST : "+roleRepository.findByName("ROLE_USER"));
         return userRepository.findAll();
@@ -122,12 +122,15 @@ public class UserController {
     public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
          @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
         User user = userRepository.findById(userId)
+        		
         .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-
+        System.out.println("User au depart:"+user);
+        System.out.println(userDetails);
         user.setEmail(userDetails.getEmail());
         user.setLastName(userDetails.getLastName());
         user.setFirstName(userDetails.getFirstName());
-        user.setPassword(userDetails.getPassword());
+        user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
+        System.out.println("User à la fin :" +user);
         final User updatedUser = userRepository.save(user);
         return ResponseEntity.ok(updatedUser);
     }

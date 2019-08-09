@@ -16,9 +16,9 @@ import { CreateActivitiesComponent } from './component/create-activities/create-
 import { CreateEventsComponent } from './component/create-events/create-events.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatDialogModule, MAT_DIALOG_DATA} from '@angular/material';
 import { ActivityListComponent } from './component/activity-list/activity-list.component';
-import {MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatCardModule,MatMenuModule} from '@angular/material'
+import {MatInputModule, MatOptionModule, MatSelectModule, MatIconModule,MatCardModule,MatMenuModule,MatIconRegistry} from '@angular/material'
 import { MatTableModule } from '@angular/material'
 import { MatFormFieldModule } from '@angular/material';
 import { CreateCategorieComponent } from './component/create-categorie/create-categorie.component';
@@ -26,6 +26,12 @@ import { CategoriesComponent } from './component/categories/categories.component
 import { SurveyComponent } from './component/survey/survey.component';
 import { HomeComponent } from './component/home/home.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
+import { EditActivityComponent } from './component/edit-activity/edit-activity.component';
+import { EditEventComponent } from './component/edit-event/edit-event.component';
+import { EditCategorieComponent } from './component/edit-categorie/edit-categorie.component';
+import { ActivityDetailComponent } from './component/activity-detail/activity-detail.component';
+import { EventDetailComponent } from './component/event-detail/event-detail.component';
+import { ProposeEventComponent } from './component/propose-event/propose-event.component';
 
 
 
@@ -45,6 +51,13 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
     SurveyComponent,
     HomeComponent,
     EditUserComponent,
+    EditActivityComponent,
+    EditEventComponent,
+    EditCategorieComponent,
+    ActivityDetailComponent,
+    EventDetailComponent,
+    ProposeEventComponent,
+
 
 
 
@@ -54,6 +67,7 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
 
 
   ],
+  entryComponents: [EditActivityComponent,EditEventComponent,EditCategorieComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -72,7 +86,10 @@ import { EditUserComponent } from './component/edit-user/edit-user.component';
     MatTableModule,
     MatCardModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule,
+ 
+
 
   ],
   providers: [AuthenticationService],

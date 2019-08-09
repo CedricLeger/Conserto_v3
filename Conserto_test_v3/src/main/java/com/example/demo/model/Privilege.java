@@ -23,7 +23,7 @@ public class Privilege {
 
     private String name;
 
-    @ManyToMany(mappedBy = "privileges",fetch = FetchType.EAGER )
+    @ManyToMany(mappedBy = "privileges",fetch = FetchType.EAGER ,cascade= {CascadeType.ALL} )
     private Collection<Role> roles;
 
     public Privilege() {

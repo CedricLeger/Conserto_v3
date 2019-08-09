@@ -61,19 +61,23 @@
     <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
     <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
   </ng-container>
-  <ng-container matColumnDef="role">
+  <!-- <ng-container matColumnDef="role">
     <mat-header-cell *matHeaderCellDef> Role </mat-header-cell>
     <mat-cell *matCellDef="let user"> {{user.role}} </mat-cell>
-  </ng-container>
+  </ng-container> -->
   <ng-container matColumnDef="action">
     <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button (click)="openDialog()" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+      <button (click)="startEdit(row.id, row.firtName , row.lastName ,row.email)" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
           <mat-icon aria-label="Edit">edit</mat-icon>
         </button>
       <button (click)="deleteUser(row.id)" mat-icon-button matTooltip="Click to Delete"  class="iconbutton" color="warn">
           <mat-icon aria-label="Delete">delete</mat-icon>
         </button>
+        <button (click)="userDetails(row.id)" mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+          <mat-icon aria-label="Edit">Infos</mat-icon>
+        </button>
+
     </mat-cell>
   </ng-container>
 

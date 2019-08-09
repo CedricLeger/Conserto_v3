@@ -13,6 +13,9 @@ import { CategoriesComponent } from './component/categories/categories.component
 import { SurveyComponent } from './component/survey/survey.component';
 import { EditUserComponent } from './component/edit-user/edit-user.component';
 import { HomeComponent } from './component/home/home.component';
+import { ActivityDetailComponent } from './component/activity-detail/activity-detail.component';
+import { EventDetailComponent } from './component/event-detail/event-detail.component';
+import { ProposeEventComponent } from './component/propose-event/propose-event.component';
 
 const routes: Routes = [
 
@@ -21,11 +24,14 @@ const routes: Routes = [
 { path : 'logout', component : LoginComponent},
 { path: 'users', component : UserListComponent , canActivate: [AuthGaurdService]},
 { path: 'add', component : CreateUserComponent, canActivate: [AuthGaurdService]},
-{ path: 'users/detail/id', component: UserDetailsComponent},
-{ path: 'categorie', component : CreateCategorieComponent},
-{ path: 'allcategorie', component : CategoriesComponent},
+{ path: 'detail/:id', component: UserDetailsComponent,canActivate: [AuthGaurdService]},
+{ path: 'categorie', component : CreateCategorieComponent,canActivate: [AuthGaurdService]},
+{ path: 'allcategorie', component : CategoriesComponent,canActivate: [AuthGaurdService]},
 { path: 'survey', component : SurveyComponent,canActivate: [AuthGaurdService]},
 { path: 'home', component : HomeComponent , canActivate: [AuthGaurdService]},
+{ path: 'activities/activitydetail/:id',component : ActivityDetailComponent,canActivate: [AuthGaurdService]},
+{ path: 'activities/eventdetail/:id',component : EventDetailComponent,canActivate: [AuthGaurdService]},
+{ path: 'proposedevent', component : ProposeEventComponent,canActivate: [AuthGaurdService]},
 
 
 

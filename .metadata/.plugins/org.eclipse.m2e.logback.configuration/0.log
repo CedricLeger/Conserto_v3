@@ -3611,3 +3611,140 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2019-08-06 09:56:37,894 [Worker-3: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-08-06 09:56:37,919 [Worker-3: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-08-06 09:56:37,920 [Worker-3: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:45:31,845 [Worker-36: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:45:31,924 [Worker-36: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:45:31,945 [Worker-36: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:45:31,954 [Worker-36: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:45:31,956 [Worker-36: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:46:28,863 [Worker-33: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:28,864 [Worker-33: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:46:28,866 [Worker-33: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:46:28,870 [Worker-33: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:28,870 [Worker-33: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:46:35,083 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:35,084 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:46:35,094 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:46:35,119 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:35,119 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:46:48,351 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:48,352 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:46:48,354 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:46:48,361 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:46:48,362 [Worker-38: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:48:26,547 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:48:26,548 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:48:26,553 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:48:26,565 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:48:26,565 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 13:51:09,496 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:51:09,504 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 13:51:09,506 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 13:51:09,510 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 13:51:09,510 [Worker-37: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 14:40:41,914 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 14:40:41,988 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 14:40:42,008 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 14:40:42,012 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 14:40:42,012 [Worker-44: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 14:43:00,873 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 14:43:00,873 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 14:43:00,903 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 14:43:00,906 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 14:43:00,906 [Worker-49: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 17:05:58,835 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-08-06 17:09:17,763 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:09:17,793 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 17:09:17,896 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 17:09:17,909 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:09:17,927 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 17:11:07,143 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:11:07,149 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 17:11:07,152 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 17:11:07,156 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:11:07,156 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-06 17:12:53,402 [Worker-4: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:12:53,403 [Worker-4: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-06 17:12:53,405 [Worker-4: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 17:12:53,408 [Worker-4: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-06 17:12:53,408 [Worker-4: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 08:56:48,585 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-08-07 08:59:18,673 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 08:59:18,681 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 08:59:18,719 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 08:59:18,725 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 08:59:18,726 [Worker-11: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 09:05:37,399 [Worker-15: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:05:37,420 [Worker-15: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 09:05:37,423 [Worker-15: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 09:05:37,428 [Worker-15: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:05:37,428 [Worker-15: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 09:05:55,893 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:05:55,894 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 09:05:55,895 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 09:05:55,933 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:05:55,934 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 09:07:03,518 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:07:03,522 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 09:07:03,531 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 09:07:03,535 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:07:03,535 [Worker-12: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 09:08:04,810 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:08:04,811 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 09:08:04,829 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 09:08:04,833 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:08:04,833 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 09:51:03,428 [Worker-19: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:51:03,664 [Worker-19: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 09:51:03,665 [Worker-19: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 09:51:03,669 [Worker-19: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 09:51:03,669 [Worker-19: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 10:29:36,249 [Worker-26: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 10:29:36,314 [Worker-26: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 10:29:36,316 [Worker-26: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 10:29:36,319 [Worker-26: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 10:29:36,319 [Worker-26: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 10:39:05,285 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 10:39:05,367 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 10:39:05,395 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 10:39:05,399 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 10:39:05,399 [Worker-30: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 14:52:10,879 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-08-07 14:53:24,294 [Worker-1: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 14:53:24,301 [Worker-1: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-07 14:53:24,376 [Worker-1: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-07 14:53:24,380 [Worker-1: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-07 14:53:24,381 [Worker-1: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-07 15:50:33,485 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-08-07 16:16:38,204 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-08-08 08:55:05,041 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2019-08-08 10:09:46,739 [Worker-7: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-08 10:09:46,796 [Worker-7: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-08 10:09:46,854 [Worker-7: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-08 10:09:46,857 [Worker-7: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-08 10:09:46,857 [Worker-7: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-08 10:45:44,290 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-08 10:45:44,345 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-08 10:45:44,366 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-08 10:45:44,370 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-08 10:45:44,370 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-09 09:00:45,548 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2019-08-09 09:06:52,755 [Worker-18: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:06:52,761 [Worker-18: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-09 09:06:52,828 [Worker-18: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-09 09:06:52,832 [Worker-18: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:06:52,832 [Worker-18: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-09 09:13:23,283 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:13:23,293 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-09 09:13:23,295 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-09 09:13:23,300 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:13:23,300 [Worker-3: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-09 09:15:07,006 [Worker-28: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:15:07,007 [Worker-28: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-09 09:15:07,008 [Worker-28: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-09 09:15:07,015 [Worker-28: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:15:07,015 [Worker-28: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources
+2019-08-09 09:59:28,177 [Worker-39: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:59:28,201 [Worker-39: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-08-09 09:59:28,203 [Worker-39: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-09 09:59:28,216 [Worker-39: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-08-09 09:59:28,216 [Worker-39: Launching Conserto_test_v3 - ConsertoTestV3Application] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/stagldnr/Bureau/NO SPRING SECURITY/Conserto_test_v3/src/test/resources

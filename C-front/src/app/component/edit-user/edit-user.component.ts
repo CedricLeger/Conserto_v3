@@ -1,9 +1,10 @@
 import { Component, OnInit , Inject} from '@angular/core';
 import {Router} from "@angular/router";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators, FormControl} from "@angular/forms";
 import {first} from "rxjs/operators";
 import { UserService } from 'src/app/service/user.service';
 import { User } from 'src/app/module/user';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -11,49 +12,42 @@ import { User } from 'src/app/module/user';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditUserComponent {
 
-  user: User;
-  editForm: FormGroup;
-  public submitted = false;
-  constructor(private formBuilder: FormBuilder,private router: Router, private userService: UserService) { }
+  constructor(public dialogRef: MatDialogRef<EditUserComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any, public userService: UserService,private _formBuilder: FormBuilder) { }
 
+formControl = this._formBuilder.group({
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', Validators.required],
+  firstName: ['', Validators.required],
+  lastName: ['', Validators.required],
 
-  ngOnInit() {
-    const userId = window.localStorage.getItem("editUserId");
-    if(!userId) {
-      alert("Invalid action.")
-      this.router.navigate(['users']);
-      return;
-    }
-    this.editForm = this.formBuilder.group({
-      id: [''],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required,Validators.email],
-      password: ['', Validators.required]
-    });
-    this.userService.getUser(+userId)
-      .subscribe( data => {
-        this.editForm.setValue(data.result);
-      });
-  }
+});
+// getErrorMessage() {
+// return this.formControl.hasError('required') ? 'Required field' :
+// this.formControl.hasError('email') ? 'Not a valid email' :
+// '';
+// }
 
-  onSubmit() {
-    this.userService.updateUser(this.editForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
+submit() {
 
-            alert('User updated successfully.');
-            this.router.navigate(['users']);
+}
+refresh(): void {
+  window.location.reload();
+}
 
+onNoClick(): void {
+this.dialogRef.close();
+}
 
-          },
+stopEdit(): void {
 
-        error => {
-          alert(error);
-        });
-  }
+  console.log('fonction stop edit');
+
+  this.userService.updateUser(this.data);
+  console.log('print de data'+this.data);
+  this.refresh();
+}
 
 }

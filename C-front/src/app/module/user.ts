@@ -1,4 +1,4 @@
-import { CollectionChangeRecord } from '@angular/core';
+
 import { Role } from './role';
 
 export class User {
@@ -9,6 +9,6 @@ lastName: string;
 email: string;
 password: string;
 roles:Role[];
-// admin: boolean;
+
 
 }

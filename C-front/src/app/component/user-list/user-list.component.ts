@@ -43,11 +43,9 @@ displayedColumns = ['id', 'firstname', 'lastname', 'email', 'action'];
   }
 
   deleteUser(id: number) {
-    console.log("voici l'id :" );
     this.userService.deleteUser(id)
       .subscribe(
         data => {
-
           this.dataSource = new UserDataSource(this.userService)
           console.log(data);
           console.log(this.userService);
@@ -64,22 +62,15 @@ const dialogRef = this.dialog.open(EditUserComponent, {
 dialogRef.afterClosed().subscribe(result => {
   if (result === 1) {
     const foundIndex = this.userService.dataChange.value.findIndex(x => x.id === this.user.id);
-    // for delete we use splice in order to remove single object from DataService
     this.userService.dataChange.value[foundIndex]= this.userService.getDialogData();
-    // this.refreshTable();
-
 }
 });
 }
+
 userDetails(id: number) {
   this.router.navigate(['/detail', id]);
 }
 }
-
-
-
-
-
 export class UserDataSource extends DataSource<any> {
 constructor(private userService: UserService) {
   super();
@@ -91,7 +82,5 @@ disconnect(){}
 
 
   }
-  // applyFilter(filterValue: string) {
-  //   this.users.filter = filterValue.trim().toLowerCase();
-  // }
+
 

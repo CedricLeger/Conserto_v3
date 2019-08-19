@@ -30,7 +30,6 @@ public class User  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @OnDelete(action = OnDeleteAction.CASCADE)
     private Long id;
 
     private String firstName;

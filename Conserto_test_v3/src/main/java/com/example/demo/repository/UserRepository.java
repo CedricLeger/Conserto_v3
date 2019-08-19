@@ -14,10 +14,5 @@ public interface UserRepository extends JpaRepository<User, Long>{
 	
 	    User findByEmail(String email);
 	    
-//	    public void remove(Role role) {
-//	        for(User user : role.getUsers()){
-//	            user.getRoles().remove(role);
-//	        }
-//	        Session.remove(role);
-//	    }
+
 	}

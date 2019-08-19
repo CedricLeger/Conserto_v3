@@ -40,123 +40,102 @@ import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.demo.configuration.SetupDataLoader;
-//import com.example.demo.service.UserService;
 
-@RestController @CrossOrigin("*")
+@RestController
+@CrossOrigin("*")
 @RequestMapping("/api/v1")
 public class UserController {
-	
-	
-	
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private RoleRepository roleRepository;
-//    private ActivityRepository activityRepository;
-    @Autowired
-    private PrivilegeRepository privilegeRepository;
-//    private EventRepository eventRepository;
-  
-   
-//    private UserService userService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
 
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private RoleRepository roleRepository;
+	@Autowired
+	private ActivityRepository activityRepository;
+	@Autowired
+	private PrivilegeRepository privilegeRepository;
+	@Autowired
+	private EventRepository eventRepository;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
+	@GetMapping("/users")
+	public List<User> getAllUsers() {
 
+		return userRepository.findAll();
+	}
 
-    
-    @GetMapping("/users")
-    public List<User> getAllUsers(){ 
-//    	System.out.println("tous mes users : "+userRepository.findAll());
-    	//test
-//    	System.out.println("TEST : "+roleRepository.findByName("ROLE_USER"));
-        return userRepository.findAll();
-    }
+	@GetMapping("/users/{id}")
+	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
+		User user = userRepository.findById(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
+		return ResponseEntity.ok().body(user);
+	}
 
-    @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId)
-        throws ResourceNotFoundException {
-        User user = userRepository.findById(userId)
-          .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-        System.out.println(user);
-        return ResponseEntity.ok().body(user);
-    }
-    
-    @PostMapping("/users")
-    public User createUser(@Valid @RequestBody User user,BindingResult result)  {
-    	
-    	
-    		return createUserIfNotFound(user.getEmail(),user.getFirstName(),user.getLastName(),user.getPassword(),user.getRoles());
-    }
+	@PostMapping("/users")
+	public User createUser(@Valid @RequestBody User user, BindingResult result) {
 
-    
-   
-    public final User createUserIfNotFound(final String email, final String firstName, final String lastName, final String password,  final List<Role> roles) {
-        User user = userRepository.findByEmail(email);
-        
-        if (user == null) {
-        	
-            user = new User();
-            user.setId(user.getId());
-            user.setFirstName(firstName);
-            user.setLastName(lastName);
-            user.setPassword(passwordEncoder.encode(password));
-            user.setEmail(email);
+		return createUserIfNotFound(user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(),
+				user.getRoles());
+	}
 
+	@PutMapping("/users/{id}")
+	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
+			@Valid @RequestBody User userDetails) throws ResourceNotFoundException {
+		User user = userRepository.findById(userId)
 
-        }
+				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
+		user.setEmail(userDetails.getEmail());
+		user.setLastName(userDetails.getLastName());
+		user.setFirstName(userDetails.getFirstName());
+		user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
+		final User updatedUser = userRepository.save(user);
+		return ResponseEntity.ok(updatedUser);
+	}
+
+	@DeleteMapping("/users/{id}")
+	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId) throws ResourceNotFoundException {
+		User user = userRepository.findById(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
+
+		userRepository.delete(user);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
+
+	// test
+	@GetMapping(produces = "application/json")
+	@RequestMapping({ "/" })
+
+	public User validateLogin() {
+		return new User();
+	}
+
+	public final User createUserIfNotFound(final String email, final String firstName, final String lastName,
+			final String password, final List<Role> roles) {
+		User user = userRepository.findByEmail(email);
+
+		if (user == null) {
+
+			user = new User();
+			user.setId(user.getId());
+			user.setFirstName(firstName);
+			user.setLastName(lastName);
+			user.setPassword(passwordEncoder.encode(password));
+			user.setEmail(email);
+
+		}
 //        List<Role> r = new ArrayList<>();
 //        if (roles != null) {
 //        	r.addAll(roles);
 //        }
 //        Role test = roleRepository.findByName("ROLE_USER");
 //        r.add(test) ;
-        
+
 //        user.setRoles(r);
-        user = userRepository.save(user);
-        return user;
-    }
-
-	@PutMapping("/users/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
-         @Valid @RequestBody User userDetails) throws ResourceNotFoundException {
-        User user = userRepository.findById(userId)
-        		
-        .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-        System.out.println("User au depart:"+user);
-        System.out.println(userDetails);
-        user.setEmail(userDetails.getEmail());
-        user.setLastName(userDetails.getLastName());
-        user.setFirstName(userDetails.getFirstName());
-        user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
-        System.out.println("User à la fin :" +user);
-        final User updatedUser = userRepository.save(user);
-        return ResponseEntity.ok(updatedUser);
-    }
-
-    @DeleteMapping("/users/{id}")
-    public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId)
-         throws ResourceNotFoundException {
-        User user = userRepository.findById(userId)
-       .orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + userId));
-        
-        userRepository.delete(user);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
-    }
-
-    
-    //test
-	@GetMapping(produces = "application/json")
-	@RequestMapping({ "/" })
-	
-	public User validateLogin() {
-		return new User();
+		user = userRepository.save(user);
+		return user;
 	}
-	 // == create initial privileges
-    
+
 }
-	
-	

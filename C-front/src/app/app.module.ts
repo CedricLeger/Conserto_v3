@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CreateUserComponent } from './component/create-user/create-user.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule,HttpClientXsrfModule } from '@angular/common/http';
 import { LoginComponent } from './component/login/login.component';
 import { AuthGaurdService } from './service/auth-guard.service';
 import { AuthenticationService } from './service/authentication.service';
@@ -32,6 +32,7 @@ import { EditCategorieComponent } from './component/edit-categorie/edit-categori
 import { ActivityDetailComponent } from './component/activity-detail/activity-detail.component';
 import { EventDetailComponent } from './component/event-detail/event-detail.component';
 import { ProposeEventComponent } from './component/propose-event/propose-event.component';
+import { VoteCategorieComponent } from './component/vote-categorie/vote-categorie.component';
 
 
 
@@ -57,6 +58,7 @@ import { ProposeEventComponent } from './component/propose-event/propose-event.c
     ActivityDetailComponent,
     EventDetailComponent,
     ProposeEventComponent,
+    VoteCategorieComponent,
 
 
 
@@ -67,13 +69,14 @@ import { ProposeEventComponent } from './component/propose-event/propose-event.c
 
 
   ],
-  entryComponents: [EditActivityComponent,EditEventComponent,EditCategorieComponent],
+  entryComponents: [EditActivityComponent,EditEventComponent,EditCategorieComponent,VoteCategorieComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({cookieName: 'XSRF-TOKEN'}),
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule,
@@ -88,7 +91,7 @@ import { ProposeEventComponent } from './component/propose-event/propose-event.c
     MatMenuModule,
     MatDialogModule,
     MatIconModule,
- 
+
 
 
   ],

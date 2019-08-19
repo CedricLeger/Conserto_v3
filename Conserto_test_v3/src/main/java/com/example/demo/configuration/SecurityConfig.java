@@ -18,6 +18,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.csrf.CsrfTokenRepository;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
@@ -32,10 +34,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
     private UserService userService;
+	@Autowired
 	private UserDetailsService myUserDetailsService;
 	@Autowired
 	DataSource dataSource;
 	
+	//gestion csrf
+	private static final String[] CSRF_IGNORE = {"/signin/**", "/signup/**"};
 	
 	
 	@Autowired
@@ -48,9 +53,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity
+	
 		.cors().and().csrf().disable();
 	}
 
+	//pour dossier de projet
+	
+//	protected void configure(HttpSecurity http) throws Exception {
+//	    http
+//	            .authorizeRequests()
+//	            .antMatchers("/login", "/").permitAll()
+//	            .antMatchers("/user/**").hasRole("ROLE_USER")
+//	            .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN') and hasRole('ROLE_USER')")
+//	            .anyRequest().authenticated()
+//	            .and()
+//	            .formLogin().disable();
+//	           
+//	}
+//	//gestion csrf
+	private CsrfTokenRepository csrfTokenRepository() {
+		HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
+		repository.setHeaderName(CustomCsrfFilter.CSRF_COOKIE_NAME);
+		return repository;
+	}
+	
 //	@Bean
 //    CorsConfigurationSource corsConfigurationSource() {
 //        CorsConfiguration configuration = new CorsConfiguration();

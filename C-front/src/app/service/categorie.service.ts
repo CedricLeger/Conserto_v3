@@ -29,12 +29,12 @@ export class CategorieService {
   }
 
 
-  getCategorie(id: number) {
-    return this.http.get(`${this.baseUrl}/${id}`);
-  }
-  // getCategorie(id: number): Observable<any> {
+  // getCategorie(id: number) {
   //   return this.http.get(`${this.baseUrl}/${id}`);
   // }
+  getCategorie(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
+  }
 
   createCategorie(categorie: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, categorie);

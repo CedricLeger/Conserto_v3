@@ -16,10 +16,8 @@ export class UserService {
   dialogData: any;
   private baseUrl = 'http://localhost:8082/springboot-crud-rest/api/v1/users';
 
-  // test pour l'authentification
-  email = 'test';
-  password = 'test';
-  headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -71,5 +69,8 @@ updateUser(user:User){
   //  const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
   //  return this.http.get<any>(`${this.baseUrl}`, {headers});
   }
+
+
+    // headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(this.email + ':' + this.password)});
 }
 
